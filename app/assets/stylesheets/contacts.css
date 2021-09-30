@@ -2,3 +2,46 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+body{
+  max-width: 100vw;
+  padding: 0%;
+  margin:0;
+  background-color: #caf0f8;
+
+}
+
+.with-side-bar {
+  display: grid;
+  grid-template-columns: 15vw 1fr;
+}
+
+.side-bar{
+  width: 100%;
+  min-height: 100vh;
+  border-right: 3px solid black;
+
+}
+
+.links-list{
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 10%;
+  margin-top: 3rem;
+}
+
+.side-bar-link{
+  
+  width: 80%;
+  margin-top: 3vh;
+  padding: 0.2rem;
+
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+
+  border: 1px solid #0077b6;
+  background-color: #90e0ef;
+}
+.logo-small{
+  max-width: 100%;
+}
