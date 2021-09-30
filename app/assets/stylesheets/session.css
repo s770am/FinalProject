@@ -2,3 +2,60 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+.login{
+  height: 96vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: center;
+  justify-items: center;
+}
+
+.logo{
+  background-color: #48CAE4;
+  height: 500px;
+  width: 500px;
+  border-radius: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-medium{
+  height: 400px;
+  width: 400px;
+  border-radius: 400px;
+}
+
+.login-form{
+  background-color: #48CAE4;
+  height: 500px;
+  width: 500px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form>input,.form{
+  height: 30px;
+  width: 350px;
+  margin: 30px 0;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+#create-account{
+  background-color: #EEEEEE;
+  padding: 5px 130px;
+  margin-top: 25px;
+  border: 1px solid #333333;
+  font-size: 90%;
+}
+
+#create-account:hover{
+  background-color: #eeeeeeda;
+}

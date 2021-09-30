@@ -1,0 +1,29 @@
+<%= javascript_pack_tag "new_team_member" %>
+<div class="team-member-new-page">
+    <div class="team-member-form">
+    <h1>Create Account</h1>
+        <%= form_for "" do |f| %>
+            <div class="form">
+                <%= f.text_field :name, placeholder: "Name" %>
+            </div>
+            <div class="form">
+                <%= f.email_field :email, placeholder: "Email" %>
+            </div>
+            <div class="form">
+                <%= f.password_field :password, placeholder: "Password" %>
+            </div>
+            <div class="form">
+                <%= f.password_field :password_confirmation, placeholder: "Re-enter your password" %>
+            </div>
+            <div class="form">
+                <%= f.radio_button :admin, "true" %>
+                <%= f.label :admin, "I am creating a team" %>
+                <%= f.radio_button :admin, "false" %>
+                <%= f.label :admin, "I am already in a team" %>
+            </div>
+            <div class="form" id="submit">
+                <%= f.submit "Create Account" %>
+            </div>
+        <% end %>
+    </div>
+</div>
