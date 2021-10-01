@@ -1,2 +1,31 @@
-<h1>Messages#index</h1>
-<p>Find me in app/views/messages/index.html.erb</p>
+<%= javascript_pack_tag 'message_index' %>
+<div class="with-side-bar">
+    <div class="partial">
+        <%= render partial: "contacts/side-bar"%>
+    </div>
+    <div class="everything-else">
+        <% @messages.each do |msg| %>
+            <% if msg.read==false %>
+                <li class="msg-index not-msg-show msg-unseen"><strong><%= msg.sender %></strong> | <%= msg.subject %></li>
+                <li class="msg-index msg-show">
+                    <%=form_for [@member.team, @member, msg] do |f| %> <%=f.submit "mark as read", id:"msg-submit"%> <% end %>
+                    <div><%= msg.created_at %></div>
+                    <div><strong><%= msg.sender %></strong></div>
+                    <div><%= msg.text %></div>
+                    <div><%= link_to "delete",team_team_member_message_path(@member.team, @member, msg),method: :delete,id:"msg-delete", data: {confirm:"Are you sure you want to delete this message?"} %></div>
+                </li>
+            <% end %>
+        <% end %>
+        <% @messages.each do |msg| %>
+            <% if msg.read!=false %>
+                <li class="msg-index not-msg-show"><strong><%= msg.sender %></strong> | <%= msg.subject %></li>
+                <li class="msg-index msg-show">
+                    <div><%= msg.created_at %></div>
+                    <div><strong><%= msg.sender %></strong></div>
+                    <div><%= msg.text %></div>
+                    <div><%= link_to "delete",team_team_member_message_path(@member.team, @member, msg),method: :delete,id:"msg-delete", data: {confirm:"Are you sure you want to delete this message?"} %></div>
+                </li>
+            <% end %>
+        <% end %>
+    </div>
+</div>
