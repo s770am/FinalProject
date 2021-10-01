@@ -2,3 +2,44 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+.new-task-page{
+  width: 750px;
+  height: 96vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.new-task-content-grid{
+  display: grid;
+  grid-template-columns: 300px 300px;
+}
+
+.new-task-content{
+  border: solid black 1px;
+  height: 100px;
+  width: 300px;
+  margin: 0;
+  font-size: x-large;
+}
+
+#task-text-area{
+  width: 295px;
+  height: 95px;
+  font-size: large;
+}
+
+#progress-task{
+  width: 50%;
+  height: 10px;
+  margin: 10px;
+}
+
+#submit-task{
+  width: 100px;
+  height: 30px;
+  margin: 15px;
+}
