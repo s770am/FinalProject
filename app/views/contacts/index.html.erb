@@ -1,7 +1,35 @@
 <div class="with-side-bar">
 <%= render partial: "side-bar"%>
 
-<div class="right-side">
-<h1>Contacts#index</h1>
-<p>Find me in app/views/contacts/index.html.erb</p>
+<section class="right-side">
+
+<div class="top-bar">
+<h1><%= current_team_member[:name].titleize%> | <%= current_team_member[:job].titleize%></h1>
+
+  <%= form_for :query, url: team_contacts_path(current_team_member[:team_id]), method: :get do |form| %>
+  <div class="field">
+    <%= form.text_field :sName, placeholder: 'Search...', value: params.dig('query', 'text') %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Search' %>
+  </div>
+  <% end  %>
+
 </div>
+
+<ul class="contacts-box">
+
+<% @contacts.each do |contact| %>
+    <li class="contact-box">
+    <p class="contact-font"><%= contact.name%></p>
+    <p class="contact-font"><%= contact.email%></p>
+    <p class="contact-font"><%= contact.number%></p>
+    <%= link_to "view contact",  team_contact_path(current_team_member[:team_id], contact.id)%>
+    </li>
+<% end %>
+
+</ul>
+
+
+</section>

@@ -12,13 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2021_10_01_211652) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.integer "number"
+    t.string "number"
     t.date "birthdate"
     t.string "address"
     t.integer "team_id"
