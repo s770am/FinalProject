@@ -4,28 +4,26 @@
 <section class="right-side">
 
 <div class="top-bar">
-<h1><%= current_team_member[:name].titleize%> | <%= current_team_member[:job].titleize%></h1>
+<h1 class="member-name"><%= current_team_member[:name].titleize%> | <%= current_team_member[:job].titleize%></h1>
 
   <%= form_for :query, url: team_contacts_path(current_team_member[:team_id]), method: :get do |form| %>
-  <div class="field">
-    <%= form.text_field :sName, placeholder: 'Search...', value: params.dig('query', 'text') %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit 'Search' %>
+  <div class="search-field-outter-box">
+    <%= form.text_field :sName, placeholder: 'Search for contact', value: params.dig('query', 'text'), class: "search-bar" %>
+    <%= form.submit 'Search', class: "search-button" %>
   </div>
   <% end  %>
 
+<%#  %>
 </div>
 
 <ul class="contacts-box">
 
 <% @contacts.each do |contact| %>
     <li class="contact-box">
-    <p class="contact-font"><%= contact.name%></p>
-    <p class="contact-font"><%= contact.email%></p>
-    <p class="contact-font"><%= contact.number%></p>
-    <%= link_to "view contact",  team_contact_path(current_team_member[:team_id], contact.id)%>
+    <p class="contact-font">Name: <%= contact.name%></p>
+    <p class="contact-font">Email: <%= contact.email%></p>
+    <p class="contact-font">Phone Number: <%= contact.number%></p>
+    <%= link_to "View Full Contact",  team_contact_path(current_team_member[:team_id], contact.id), class: "contact-font link-to-contact"%>
     </li>
 <% end %>
 

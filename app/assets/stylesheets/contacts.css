@@ -143,5 +143,66 @@ body{
 /* this is where i am styling the index page */
 
 .contacts-box{
+
+}
+
+.top-bar{
+  margin-left: 2vw;
+  padding: 2vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.search-button{
+  height: 2rem;
+  width: 4rem;
+  background-color: #90e0ef;
+  border: 1px solid #0077b6;
+}
+
+.search-bar{
+  height: 1.75rem;
+  width: 15rem;
+  border: 1px solid #0077b6;
+}
+.member-name{
+  font-size: xx-large;
+}
+
+.contact-box{
+list-style: none;
+background-color: #90e1ef2d;
+  border: 2px solid #0077b6;
+  margin-right: 4vw;
+  margin-left: 2vw;
+  margin-bottom: 0.5rem;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+
   
+  
+}
+
+.contacts-box{
+display: flex;
+flex-wrap: wrap;
+
+}
+
+.contact-font{
+  font-size: x-large;
+  margin: 0;
+  margin-left: 1vw;
+}
+
+.link-to-contact {
+  color: #0077b6;
+}
+
+.link-to-contact:hover{
+  color: #023eba;
 }
