@@ -45,3 +45,92 @@ body{
 .logo-small{
   max-width: 100%;
 }
+
+.contact-page{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.pinned{
+  background-color: #00B4D8;
+  width: 90%;
+  padding: 5px;
+  margin: 10px;
+}
+
+#add-note-area{
+  width: 90%;
+  height: 200px;
+  margin: 10px;
+}
+
+#add-note-button{
+  width: 80px;
+  height: 40px;
+  margin: 10px;
+}
+
+.note-listing{
+  list-style-type: none;
+  background-color: white;
+  width: 90%;
+  padding: 5px;
+  margin: 10px;
+}
+
+#progress-contact{
+  width: 90%;
+  height: 10px;
+  margin: 10px;
+}
+
+.contact-info{
+  background-color: white;
+  width: 90%;
+  min-height: 35px;
+  padding: 5px;
+  margin: 10px;
+  border: solid black 1px;
+  font-size: xx-large;
+}
+
+.contact-buttons{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  height: 100px;
+  gap: 10px;
+}
+
+.contact-button{
+  text-align: center;
+  margin: 20px;
+}
+
+.contact-button>a{
+  text-decoration: none;
+  color: black;
+  background-color: rgb(255, 253, 246);
+  border: solid black 1px;
+  padding: 10px;
+  border-radius: 5%;
+  font-size: larger;
+}
+
+.contact-button>a:hover{
+  background-color: #EEEEEE;
+}
+
+#delete-note{
+  display: block;
+  width: 40px;
+  border: solid black 1px;
+  margin: 15px 0;
+  background-color: rgb(255, 253, 246);
+  border-radius: 2px;
+}
+
+#delete-note:hover{
+  background-color: #EEEEEE;
+}

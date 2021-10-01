@@ -1,0 +1,44 @@
+<div class="alert"><%= flash[:alert] %></div>
+<div class="with-side-bar">
+    <div class="partial">
+        <%= render partial: "side-bar" %>
+    </div>
+    <div class="everything-else">
+        <div class="contact-page">
+            <div class="contact-page-left">
+                <% @notes.each do |note| %>
+                    <% if note.pinned==true %>
+                        <div class="pinned"><%= note.created_at %> | <%=form_for [@contact.team, @contact, note] do |f| %> <%=f.submit "unpin"%> <% end %><p><%= note.text %></p></div>
+                    <% end %>
+                <% end %>
+                <%= form_for [@contact.team, @contact, @note] do |f| %>
+                    <%= f.text_area :text, id:"add-note-area", placeholder:"Add note" %>
+                    <%= f.submit "Add note", id:"add-note-button" %>
+                <% end %>
+                <% @notes.each do |note| %>
+                    <% if note.pinned==false %>
+                        <li class="note-listing">
+                        <%=form_for [@contact.team, @contact, note] do |f| %> <%=f.submit "pin"%> <% end %>
+                        <%= note.created_at %>
+                        <p><%= note.text %></p>
+                        <%= link_to "delete",team_contact_note_path(@contact.team, @contact, note),method: :delete,id:"delete-note", data: {confirm:"Are you sure you want to delete this note?"} %></li>
+                    <% end %>
+                <% end %>
+            </div>
+            <div class="contact-page-right">
+                <input type="range" id="progress-contact">
+                <div class="contact-info"><%= @contact.name %></div>
+                <div class="contact-info"><%= @contact.email %></div>
+                <div class="contact-info"><%= @contact.number %></div>
+                <div class="contact-info"><%= @contact.birthdate %></div>
+                <div class="contact-info"><%= @contact.address %></div>
+                <div class="contact-buttons">
+                    <div class="contact-button"><%= link_to "Add task",new_team_contact_task_path(@contact.team, @contact) %></div>
+                    <div class="contact-button"><%= link_to "View tasks",team_contact_tasks_path(@contact.team, @contact) %></div>
+                    <div class="contact-button"><%= link_to "Edit contact",edit_team_contact_path(@contact.team, @contact) %></div>
+                    <div class="contact-button"><%= link_to "Delete contact",team_contact_path(@contact.team, @contact),method: :delete, data: {confirm:"Are you sure you want to delete this contact?"} %></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

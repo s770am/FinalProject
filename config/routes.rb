@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  get 'notes/create'
+  get 'notes/destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   root 'sessions#new'
-  # root 'contacts#index'
+  # root 'contacts#show'
   resource :sessions, only: [:new,:create,:destroy]
 
   resources :team_members, only: [:create,:new]
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
     end
     resources :contacts do
       resources :tasks
+      resources :notes, only: [:create,:update,:destroy]
     end
     resources :reports, except: [:edit,:update]
   end
