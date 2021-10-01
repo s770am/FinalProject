@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resource :sessions, only: [:new,:create,:destroy]
 
   resources :team_members, only: [:create,:new]
-  resources :teams, only: [:show,:create,:new] do
+  resources :teams, only: [:show, :create, :new] do
     get '/settings', to: 'settings#show'
     resources :team_members, only: [:index,:show] do
       resources :messages, only: [:index,:create,:destroy]
