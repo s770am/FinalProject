@@ -2,7 +2,7 @@
 <div class="team-member-new-page">
     <div class="team-member-form">
     <h1>Create Account</h1>
-        <%= form_for "" do |f| %>
+        <%= form_for @team_member do |f| %>
             <div class="form">
                 <%= f.text_field :name, placeholder: "Name" %>
             </div>
@@ -20,6 +20,9 @@
                 <%= f.label :admin, "I am creating a team" %>
                 <%= f.radio_button :admin, "false" %>
                 <%= f.label :admin, "I am already in a team" %>
+            </div>
+            <div class="form">
+                <%= f.text_field :team_id, placeholder: "Team code",value:"empty" %>
             </div>
             <div class="form" id="submit">
                 <%= f.submit "Create Account" %>
