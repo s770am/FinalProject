@@ -6,7 +6,16 @@
 <div class="top-bar">
 <h1><%= current_team_member[:name].titleize%> | <%= current_team_member[:job].titleize%></h1>
 
-  
+  <%= form_for :query, url: team_contacts_path(current_team_member[:team_id]), method: :get do |form| %>
+  <div class="field">
+    <%= form.text_field :sName, placeholder: 'Search...', value: params.dig('query', 'text') %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Search' %>
+  </div>
+  <% end  %>
+
 </div>
 
 <ul class="contacts-box">

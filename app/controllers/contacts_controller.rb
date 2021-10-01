@@ -1,10 +1,13 @@
 class ContactsController < ApplicationController
     def index
-        if current_team_member.admin
-            @contacts = Contact.where(team_id: current_team_member.team_id)
-        else
-            @contacts = Contact.where(team_id: current_team_member.team_id, team_member_id: current_team_member.id)
-        end
+        # if current_team_member.admin
+        #     @contacts = Contact.where(team_id: current_team_member.team_id)
+        # else
+        #     @contacts = Contact.where(team_id: current_team_member.team_id, team_member_id: current_team_member.id)
+        # end
+
+        @contacts = Contact.filtered(query_params)
+        
         
     end
   
@@ -31,4 +34,11 @@ class ContactsController < ApplicationController
         @contact.destroy
         redirect_to team_team_members_url(params["team_id"])
     end
+
+    private
+def query_params
+  query_params = params[:query]
+  query_params ? query_params.permit(:sName) : {}
+end
+
 end
