@@ -1,0 +1,19 @@
+<div class="login">
+    <div class="logo">
+        <%= image_tag ("monkey-for-logo.jpg"), class: "logo-medium" %>
+    </div>
+    <div class="login-form">
+        <%= form_for :session, url: sessions_path do |f| %>
+            <div class="form">
+                <%= f.email_field :name, placeholder: "Email" %>
+            </div>
+            <div class="form">
+                <%= f.password_field :password, placeholder: "Password" %>
+            </div>
+            <div class="form">
+                <%= f.submit "Sign In" %>
+            </div>
+        <% end %>
+        <%= link_to "Create Account",new_team_member_path,{id:"create-account"} %>
+    </div>
+</div>

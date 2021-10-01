@@ -3,6 +3,7 @@
   They will automatically be included in application.css.
 */
 
+
 .everything-else{
   margin: 15px;
   display: flex;
@@ -71,4 +72,27 @@
 
 .team-member-list:hover{
   background-color: #48CAE4;
+}
+
+.team-member-new-page{
+  height: 98vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-member-form{
+  background-color: skyblue;
+  width: 700px;
+  height: 900px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="radio"]{
+  height:15px;
+  width: 15px;
+
 }
