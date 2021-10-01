@@ -3,5 +3,5 @@ class Team < ApplicationRecord
     has_many :contacts
     has_many :tasks
 
-    has_secure_password
+
 end
