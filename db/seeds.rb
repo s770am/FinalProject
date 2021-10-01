@@ -10,7 +10,7 @@ TeamMember.delete_all
 
 team1=Team.create(name: "team1", team_code: "123456")
 team2=Team.create(name: "team2", team_code: "234567")
-user1 = TeamMember.create(email: 's770am@gmail.com', password: 'asdfg', team_id: 1)
+user1 = TeamMember.create(email: 's770am@gmail.com', password: 'asdfg', team_id:team1.id)
 member1=TeamMember.create(name:"member1",password:"123456",email:"",team_id:team1.id,job:"admin",admin: true)
 member2=TeamMember.create(name:"member2",password:"234567",email:"",team_id:team1.id,job:"tech support",admin: false)
 member3=TeamMember.create(name:"member3",password:"345678",email:"",team_id:team1.id,job:"plumber",admin: false)
