@@ -1,8 +1,8 @@
 class TeamMembersController < ApplicationController
     def index
-    end
-  
-    def show
+        @team=Team.find(params["team_id"])
+        @members=@team.team_members
+        @message=Message.new
     end
     
     def new

@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Team.delete_all
+TeamMember.delete_all
+
+team1=Team.create(name: "team1", team_code: "123456")
+team2=Team.create(name: "team2", team_code: "234567")
+member1=TeamMember.create(name:"member1",password:"123456",email:"",team_id:team1.id,job:"admin",admin: true)
+member2=TeamMember.create(name:"member2",password:"234567",email:"",team_id:team1.id,job:"tech support",admin: false)
+member3=TeamMember.create(name:"member3",password:"345678",email:"",team_id:team1.id,job:"plumber",admin: false)
+member4=TeamMember.create(name:"member4",password:"456789",email:"",team_id:team1.id,job:"secretary",admin: false)

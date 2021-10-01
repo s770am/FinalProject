@@ -2,3 +2,73 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+.everything-else{
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dropdown-show{
+  list-style-type: none;
+  margin: 5px;
+  font-size: xx-large;
+  width: 750px;
+  border: solid #0077B6 1px;
+}
+
+.admin-list{
+  border: solid #0077B6 3px;
+}
+
+#progress-member{
+  width: 225px;
+  height: 20px;
+  margin: 5px 10px;
+}
+
+.member-face{
+  background-color: #48CAE4;
+  border-radius: 25px;
+  margin: 5px;
+}
+
+#mail{
+  height: 40px;
+  font-size: x-large;
+}
+
+.member-show-hidden{
+  display: block;
+}
+
+.hidden{
+  display: none;
+}
+
+.hidden-add{
+  display: none;
+}
+
+.message-subject{
+  width: 650px;
+  height: 25px;
+  margin: 5px;
+}
+
+.message-text{
+  width: 650px;
+  height: 75px;
+  margin: 5px;
+}
+
+.message-button{
+  width: 80px;
+  height: 40px;
+  margin: 5px;
+}
+
+.team-member-list:hover{
+  background-color: #48CAE4;
+}
