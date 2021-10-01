@@ -6,6 +6,7 @@
 <ul class="links-list">
 
 <%= link_to "Settings",  team_settings_path(current_team_member[:team_id]), class: "side-bar-link" %>
+<%= link_to "Messages",  team_team_member_messages_path(current_team_member[:team_id],current_team_member), class: "side-bar-link" %>
 <%= link_to "Reports",  team_reports_path(current_team_member[:team_id]), class: "side-bar-link" %>
 <%= link_to "Calender", team_contacts_path(current_team_member[:team_id]), class: "side-bar-link" %>
 <%= link_to "Team page",  team_team_members_path(current_team_member[:team_id]), class: "side-bar-link" %>
