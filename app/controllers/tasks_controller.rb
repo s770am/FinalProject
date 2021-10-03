@@ -1,10 +1,16 @@
 class TasksController < ApplicationController
     def index
+        if params[:commit]
+            calculate(params[:commit])
+        else
+            session[:date]=Date.today
+        end
+        @date=session[:date]
         @team_id=params[:team_id]
         @tasks=Task.where(team_member_id:session[:team_member])
-        @first_day=Date::DAYNAMES[Date.today.at_beginning_of_month.wday]
-        @month=Date.today.month
-        @year=Date.today.year
+        @first_day=Date::DAYNAMES[@date.at_beginning_of_month.wday]
+        @month=@date.month
+        @year=@date.year
         @days=Time.days_in_month(@month)
     end
   
@@ -43,5 +49,13 @@ class TasksController < ApplicationController
     private
     def task_params
         params.require(:task).permit(:status,:product,:total_hours,:progress,:goal,:note)
+    end
+
+    def calculate(direction)
+        if direction=="previous"
+            session[:date]=Date.parse(session[:date]) - 1.month
+        elsif direction=="next"
+            session[:date]=Date.parse(session[:date]) + 1.month
+        end
     end
 end

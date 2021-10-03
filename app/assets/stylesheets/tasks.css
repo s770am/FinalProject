@@ -69,3 +69,15 @@
   margin: 5px;
   background-color: #48CAE4;
 }
+
+#month-name{
+  font-size: 400%;
+}
+
+#previous-btn{
+  margin: 5px;
+}
+
+#next-btn{
+  margin: 5px;
+}
