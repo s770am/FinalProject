@@ -69,3 +69,32 @@
   margin: 5px;
   background-color: #48CAE4;
 }
+
+#month-name{
+  font-size: 400%;
+}
+
+#previous-btn{
+  margin: 5px;
+}
+
+#next-btn{
+  margin: 5px;
+}
+
+#edit-task-btn{
+  background-color: rgb(255, 253, 246);
+  border: solid black 1px;
+  padding: 10px;
+  border-radius: 5%;
+  margin: 5px;
+}
+
+#edit-task-btn:hover{
+  background-color: #EEEEEE;
+}
+
+.edit-task-box{
+  display: flex;
+  justify-content: right;
+}

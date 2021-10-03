@@ -3,6 +3,13 @@
         <%= render partial: "contacts/side-bar"%>
     </div>
     <div class="everything-else">
+        <%= form_tag team_tasks_path, :method=>'get' do %>
+            <%= submit_tag "previous",id:"previous-btn"%>
+        <% end %>
+        <span id="month-name"><%= Date::MONTHNAMES[@date.month] %></span>
+        <%= form_tag team_tasks_path, :method=>'get' do %>
+            <%= submit_tag "next",id:"next-btn"%>
+        <% end %>
         <div class="calendar">
             <div class="day">Sunday</div><div class="day">Monday</div><div class="day">Tuesday</div><div class="day">Wednesday</div><div class="day">Thursday</div><div class="day">Friday</div><div class="day">Saturday</div>
             <% case(@first_day) %>
