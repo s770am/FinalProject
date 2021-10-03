@@ -1,0 +1,52 @@
+<%= form_for([@team, @contact]) do |f| %>
+        <div class="contact-form">
+                <div class="contact-form-field">
+                <%= f.label :name %>
+                </div>
+
+                <div class="contact-form-field">
+                <%= f.text_field :name, class: "contact-field" %>
+                </div>
+
+                <div class="contact-form-field">
+                <%= f.label :email %>
+                </div>
+
+                <div class="contact-form-field">
+                <%= f.email_field :email, class: "contact-field" %>
+                </div>
+
+                <div class="contact-form-field">
+                <%= f.label :number %>
+                </div>
+
+                <div class="contact-form-field">
+                <%= f.text_field :number, class: "contact-field" %>
+                </div>
+
+                <div class="contact-form-field">
+                <%= f.label :birthdate %>
+                </div>
+
+                <div class="contact-form-field">
+                <%= f.date_field :birthdate, class: "contact-field, date-field" %>
+                </div>
+
+                <div class="contact-form-field">
+                <%= f.label :address %>
+                </div>
+
+                <div class="contact-form-field">
+                <%= f.text_field :address, class: "contact-field" %>
+                </div>
+
+                </div>  
+
+                <div class="btn-box">
+                <%= f.submit class: "contact-btn"%>
+                </div>
+                
+                
+        </div>
+
+<% end %>

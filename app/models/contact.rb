@@ -4,6 +4,9 @@ class Contact < ApplicationRecord
     has_many :tasks
     has_many :notes
 
+
+    validates :name, presence: true
+    
     scope :filtered, ->(query_params) { Contact::Filter.new.filter(self, query_params) }
 end
 
