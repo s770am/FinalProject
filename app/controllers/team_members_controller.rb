@@ -40,6 +40,6 @@ class TeamMembersController < ApplicationController
 
     private
     def create_params
-        params.require(:team_member).permit(:name,:email,:password,:password_confirmation,:admin)
+        params.require(:team_member).permit(:name,:email,:password,:password_confirmation,:admin,:job)
     end
 end
