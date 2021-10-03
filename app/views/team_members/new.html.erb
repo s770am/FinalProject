@@ -1,6 +1,11 @@
 <%= javascript_pack_tag "new_team_member" %>
 <div class="team-member-new-page">
     <div class="team-member-form">
+    <% if !@team_member.errors.messages.empty? %>
+        <% @team_member.errors.full_messages.each do |msg| %>
+            <li class="error-msg"><%= msg %></li>
+        <%  end %>
+    <% end %>
     <h1>Create Account</h1>
         <%= form_for @team_member do |f| %>
             <div class="form">
@@ -8,6 +13,9 @@
             </div>
             <div class="form">
                 <%= f.email_field :email, placeholder: "Email" %>
+            </div>
+            <div class="form">
+                <%= f.text_field :job, placeholder: "Job" %>
             </div>
             <div class="form">
                 <%= f.password_field :password, placeholder: "Password" %>
