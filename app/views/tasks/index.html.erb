@@ -1,0 +1,60 @@
+<div class="with-side-bar">
+    <div class="partial">
+        <%= render partial: "contacts/side-bar"%>
+    </div>
+    <div class="everything-else">
+        <%= form_tag team_tasks_path, :method=>'get' do %>
+            <%= submit_tag "previous",id:"previous-btn"%>
+        <% end %>
+        <span id="month-name"><%= Date::MONTHNAMES[@date.month] %></span>
+        <%= form_tag team_tasks_path, :method=>'get' do %>
+            <%= submit_tag "next",id:"next-btn"%>
+        <% end %>
+        <div class="calendar">
+            <div class="day">Sunday</div><div class="day">Monday</div><div class="day">Tuesday</div><div class="day">Wednesday</div><div class="day">Thursday</div><div class="day">Friday</div><div class="day">Saturday</div>
+            <% case(@first_day) %>
+            <% when "Monday" %>
+                <% 1.times do %>
+                    <div class="day"></div>
+                <% end %>
+            <% when "Tuesday" %>
+                <% 2.times do %>
+                    <div class="day"></div>
+                <% end %>
+            <% when "Wednesday" %>
+                <% 3.times do %>
+                    <div class="day"></div>
+                <% end %>
+            <% when "Thursday" %>
+                <% 4.times do %>
+                    <div class="day"></div>
+                <% end %>
+            <% when "Friday" %>
+                <% 5.times do %>
+                    <div class="day"></div>
+                <% end %>
+            <% when "Saturday" %>
+                <% 6.times do %>
+                    <div class="day"></div>
+                <% end %>
+            <% end %>
+            <% count=1 %>
+            <% @days.times do %>
+                <div class="real day">
+                    <div class="number-day"><%= count %></div>
+                    <% if count<10 %>
+                        <% daycount="0"+"#{count}" %>
+                    <% else %>
+                        <% daycount=count %>
+                    <% end %>
+                    <% @tasks.each do |task| %>
+                        <% if task.date=="#{@month}-#{daycount}-#{@year}" %>
+                            <div class="calendar-task"><%= link_to "#{task.contact_name}",team_contact_task_path(@team_id,task.contact_id,task.id) %></div>
+                        <% end %>
+                    <% end %>
+                </div>
+                <% count+=1 %>
+            <% end %>
+        </div>
+    </div>
+</div>

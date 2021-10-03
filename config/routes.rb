@@ -13,8 +13,9 @@ Rails.application.routes.draw do
     resources :team_members, only: [:index,:show] do
       resources :messages, only: [:index,:create,:update,:destroy]
     end
+    resources :tasks, only: [:index]
     resources :contacts do
-      resources :tasks
+      resources :tasks, except: [:index]
       resources :notes, only: [:create,:update,:destroy]
     end
     resources :reports, except: [:edit,:update]
