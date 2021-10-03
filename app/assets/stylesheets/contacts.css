@@ -142,10 +142,6 @@ body{
 
 /* this is where i am styling the index page */
 
-.contacts-box{
-
-}
-
 .top-bar{
   margin-left: 2vw;
   padding: 2vw;
@@ -205,4 +201,68 @@ flex-wrap: wrap;
 
 .link-to-contact:hover{
   color: #023eba;
+}
+
+/* this is the style fot contact form */
+
+.contact-form-outter-box{
+
+  margin-left: 25%;
+  margin-right: 25%;
+  width: 50%;
+  min-height: 50%;
+  padding: 1rem;
+  
+  background-color: #90e1ef5e;
+  border: 2px solid #0077b6;
+
+}
+
+.contact-form{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 2fr;
+
+}
+
+.contact-form-field{
+  font-size: 1.5rem;
+  font-weight: bold;
+
+}
+
+.contact-field{
+  width: 70%;
+  margin-top: 1vh;
+  border: 1px solid #0077b6;
+}
+
+.date-field{
+  width: 71%;
+  border: 1px solid #0077b6;
+  /* position: relative;
+  top: 1vh; */
+  
+}
+
+.contact-form-title{
+  text-align: center;
+  color: #023eba;
+  font-size: xx-large;
+  text-decoration: underline;
+}
+
+.contact-btn{
+  text-align: center;
+  border: 1px solid #0077b6;
+  background-color: #90e0ef;
+  width: 12rem;
+  height: 2rem;
+
+  font-size: 1.2rem;
+}
+
+.btn-box{
+  display: flex;
+  justify-content: center;
 }

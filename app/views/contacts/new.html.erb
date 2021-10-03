@@ -2,7 +2,7 @@
 <%= render partial: "side-bar"%>
 
 
-<section class="right-side">
+<section class="right-side-contact">
 
 <div class="top-bar">
 <h1 class="member-name"><%= current_team_member[:name].titleize%> | <%= current_team_member[:job].titleize%></h1>
@@ -10,8 +10,8 @@
 <h1 class="member-name "><%= current_team.name.titleize %></h1>
 </div>
 
-<div class="new-contact-form">
-<h1 class="new-contact-form-title">Add A Contact</h1>
+<div class="contact-form-outter-box">
+<h1 class="contact-form-title">Add A Contact</h1>
 
 
 <%= render partial: "contacts"%>
