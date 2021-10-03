@@ -1,0 +1,31 @@
+<div class="with-side-bar">
+    <div class="partial">
+        <%= render partial: "contacts/side-bar"%>
+    </div>
+    <div class="everything-else">
+        <div class="new-task-page">
+            <input type="range" id="progress-task" disabled>
+            <h1><%= @task.contact_name %> </h1>
+            <h1><%= @task.date %></h1>
+            <div class="new-task-content-grid">
+                <div class="new-task-page-left">
+                    <div class="new-task-content">Contact Status</div>
+                    <div class="new-task-content">Method Used</div>
+                    <div class="new-task-content">Hours Spent</div>
+                    <div class="new-task-content">Progress</div>
+                    <div class="new-task-content">Goals</div>
+                    <div class="new-task-content">Note</div>
+                </div>
+                <div class="new-task-page-right">
+                    <div class="new-task-content"><%= @task.status %></div>
+                    <div class="new-task-content"><%= @task.product %></div>
+                    <div class="new-task-content"><%= @task.total_hours %></div>
+                    <div class="new-task-content"><%= @task.progress %></div>
+                    <div class="new-task-content"><%= @task.goal %></div>
+                    <div class="new-task-content"><%= @task.note %></div>
+                </div>
+                <div class="edit-task-box"><%= link_to "Edit task",edit_team_contact_task_path(@team,@task.contact_id,@task),id:"edit-task-btn" %></div>
+            </div>
+        </div>
+    </div>
+</div>
