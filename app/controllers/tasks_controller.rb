@@ -40,9 +40,17 @@ class TasksController < ApplicationController
     end
   
     def edit
+        @team=Team.find(params[:team_id])
+        @task=Task.find(params[:id])
     end
   
     def update
+        @task=Task.find(params[:id])
+        if @task.update(task_params)
+            redirect_to team_tasks_url(@task.team_member.team)
+        else
+            render :edit
+        end
     end
   
     def destroy

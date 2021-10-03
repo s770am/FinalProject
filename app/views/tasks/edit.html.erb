@@ -1,0 +1,32 @@
+<div class="with-side-bar">
+    <div class="partial">
+        <%= render partial: "contacts/side-bar"%>
+    </div>
+    <div class="everything-else">
+        <div class="new-task-page">
+            <h1><%= @task.contact_name %> </h1>
+            <h1><%= @task.date %></h1>
+            <div class="new-task-content-grid">
+                <div class="new-task-page-left">
+                    <div class="new-task-content">Contact Status</div>
+                    <div class="new-task-content">Method Used</div>
+                    <div class="new-task-content">Hours Spent</div>
+                    <div class="new-task-content">Progress</div>
+                    <div class="new-task-content">Goals</div>
+                    <div class="new-task-content">Note</div>
+                </div>
+                <div class="new-task-page-right">
+                    <%= form_for [@team, @task.contact, @task] do |f| %>
+                        <div class="new-task-content"><%= f.text_area :status, id:"task-text-area", value:@task.status %></div>
+                        <div class="new-task-content"><%= f.text_area :product, id:"task-text-area", value:@task.product %></div>
+                        <div class="new-task-content"><%= f.text_area :total_hours, id:"task-text-area", value:@task.total_hours %></div>
+                        <div class="new-task-content"><%= f.text_area :progress, id:"task-text-area", value:@task.progress %></div>
+                        <div class="new-task-content"><%= f.text_area :goal, id:"task-text-area", value:@task.goal %></div>
+                        <div class="new-task-content"><%= f.text_area :note, id:"task-text-area", value:@task.note %></div>
+                        <%= f.submit "Submit Task", id:"submit-task" %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
