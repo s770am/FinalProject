@@ -1,0 +1,6 @@
+<%= form_for [@team,@report] do |f| %>
+    <%= f.select :team_member_id, @team_members.collect { |p| [p.name, p.id] }, include_blank: true %>
+    <%= f.select :contact_id, @contacts.collect { |p| [p.name, p.id] }, include_blank: true %>
+    <%= f.select :task_id, @tasks.collect { |p| [p.product, p.id] }, include_blank: true %>
+    <%= f.submit "Generate report" %>
+<% end %>
