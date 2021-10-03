@@ -22,3 +22,11 @@
     background-color: lightcoral;
     font-size: 200%;
 }
+
+.error-msg{
+    background-color: lightcoral;
+    font-size: 200%;
+    list-style-type: none;
+    width: 95%;
+    margin: 1px;
+}
