@@ -1,9 +1,7 @@
 <div class="side-bar">
 
 
-
-<%= image_tag ("monkey-for-logo.jpg"), class: "logo-small" %>
-
+<%= link_to image_tag("monkey-for-logo.jpg", class: "logo-small"  ), team_contacts_path(current_team_member[:team_id])%>
 <ul class="links-list">
 
 <%= link_to "Settings",  team_settings_path(current_team_member[:team_id]), class: "side-bar-link" %>
@@ -12,8 +10,8 @@
 <%= link_to "Calender", team_tasks_path(current_team_member[:team_id]), class: "side-bar-link" %>
 <%= link_to "Team page",  team_team_members_path(current_team_member[:team_id]), class: "side-bar-link" %>
 <%= link_to "Add Contact",  new_team_contact_path(current_team_member[:team_id]), class: "side-bar-link" %>
-<%= link_to "Submit Work",  new_team_contact_task_path(current_team_member[:team_id], session[:team_member]), class: "side-bar-link" %>
-
+<%= link_to "Contacts",  team_contacts_path(current_team_member[:team_id]), class: "side-bar-link" %>
+<%= link_to "Sign Out", sessions_path, method: :delete, class: "side-bar-link" %>
 
 
 </ul>

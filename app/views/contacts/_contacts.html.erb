@@ -1,3 +1,5 @@
+<%= javascript_pack_tag "edit_contact" %>
+
 <%= form_for([@team, @contact]) do |f| %>
         <div class="contact-form">
                 <div class="contact-form-field">
@@ -5,7 +7,7 @@
                 </div>
 
                 <div class="contact-form-field">
-                <%= f.text_field :name, class: "contact-field" %>
+                <%= f.text_field :name, class: "contact-field name-field" %>
                 </div>
 
                 <div class="contact-form-field">
@@ -13,7 +15,7 @@
                 </div>
 
                 <div class="contact-form-field">
-                <%= f.email_field :email, class: "contact-field" %>
+                <%= f.email_field :email, class: "contact-field email-field" %>
                 </div>
 
                 <div class="contact-form-field">
@@ -21,7 +23,7 @@
                 </div>
 
                 <div class="contact-form-field">
-                <%= f.text_field :number, class: "contact-field" %>
+                <%= f.text_field :number, class: "contact-field number-field" %>
                 </div>
 
                 <div class="contact-form-field">
@@ -37,7 +39,7 @@
                 </div>
 
                 <div class="contact-form-field">
-                <%= f.text_field :address, class: "contact-field" %>
+                <%= f.text_field :address, class: "contact-field address-field" %>
                 </div>
 
                 </div>  
