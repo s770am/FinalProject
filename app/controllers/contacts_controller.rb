@@ -19,7 +19,7 @@ class ContactsController < ApplicationController
   
     def new
         @team = current_team
-        @contact = Contact.new
+        @contact = Contact.new(name: "")
     end
   
     def create
@@ -31,6 +31,7 @@ class ContactsController < ApplicationController
         if @contact.save 
             redirect_to team_contacts_url(current_team_member[:team_id])
         else
+            flash[:error] = "You Must Enter A Name For The Contact"
             render :new
         end
     end

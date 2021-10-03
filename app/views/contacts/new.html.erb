@@ -13,6 +13,9 @@
 <div class="contact-form-outter-box">
 <h1 class="contact-form-title">Add A Contact</h1>
 
+<% if flash[:error] %>
+      <p><%= flash[:error]%> </p>
+<% end %>
 
 <%= render partial: "contacts"%>
 
