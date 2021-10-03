@@ -34,7 +34,6 @@
                 <div class="contact-info"><%= @contact.address %></div>
                 <div class="contact-buttons">
                     <div class="contact-button"><%= link_to "Add task",new_team_contact_task_path(@contact.team, @contact) %></div>
-                    <div class="contact-button"><%= link_to "View tasks",team_contact_tasks_path(@contact.team, @contact) %></div>
                     <div class="contact-button"><%= link_to "Edit contact",edit_team_contact_path(@contact.team, @contact) %></div>
                     <div class="contact-button"><%= link_to "Delete contact",team_contact_path(@contact.team, @contact),method: :delete, data: {confirm:"Are you sure you want to delete this contact?"} %></div>
                 </div>

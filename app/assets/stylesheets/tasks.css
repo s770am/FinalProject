@@ -43,3 +43,29 @@
   height: 30px;
   margin: 15px;
 }
+
+.calendar{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 20px 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.day{
+  border: solid black 1px;
+}
+
+.real{
+  background-color: #90E0EF;
+}
+
+.number-day{
+  font-size: x-large;
+  margin: 5px;
+}
+
+.calendar-task{
+  margin: 5px;
+  background-color: #48CAE4;
+}
