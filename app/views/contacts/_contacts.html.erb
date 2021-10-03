@@ -1,0 +1,31 @@
+<%= form_for([@team, @contact]) do |f| %>
+
+        <div class="contact-form-field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        </div>
+
+        <div class="contact-form-field">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+        </div>
+
+        <div class="contact-form-field">
+        <%= f.label :number %>
+        <%= f.text_field :number %>
+        </div>
+
+        <div class="contact-form-field">
+        <%= f.label :birthdate %>
+        <%= f.date_field :birthdate %>
+        </div>
+
+        <div class="contact-form-field">
+        <%= f.label "enter your address" %>
+        <%= f.text_field :address %>
+        </div>
+
+        <div>
+        <%= f.submit class: "contacts-new-submit"%>
+        </div>
+<% end %>

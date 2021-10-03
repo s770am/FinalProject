@@ -36,9 +36,18 @@ class ContactsController < ApplicationController
     end
   
     def edit
+        @team = current_team
+        @contact = Contact.find(params[:id])
     end
   
     def update
+        @contact = Contact.find(params[:id])
+
+       if @contact.update(contact_params)
+           redirect_to team_contacts_path(current_team_member[:team_id])
+       else
+           render :edit
+       end 
     end
   
     def destroy
