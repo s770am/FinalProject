@@ -1,1 +1,53 @@
-new Contact
+<div class="with-side-bar">
+<%= render partial: "side-bar"%>
+
+
+<section class="right-side">
+
+<div class="top-bar">
+<h1 class="member-name"><%= current_team_member[:name].titleize%> | <%= current_team_member[:job].titleize%></h1>
+
+<h1 class="member-name "><%= current_team.name.titleize %></h1>
+</div>
+
+<div class="new-contact-form">
+<h1 class="new-contact-form-title">Add A Contact</h1>
+
+
+<%= form_for([@team, @contact]) do |f| %>
+
+        <div class="contact-form-field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        </div>
+
+        <div class="contact-form-field">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+        </div>
+
+        <div class="contact-form-field">
+        <%= f.label :number %>
+        <%= f.text_field :number %>
+        </div>
+
+        <div class="contact-form-field">
+        <%= f.label :birthdate %>
+        <%= f.date_field :birthdate %>
+        </div>
+
+        <div class="contact-form-field">
+        <%= f.label "enter your address" %>
+        <%= f.text_field :address %>
+        </div>
+
+        <div>
+        <%= f.submit class: "contacts-new-submit"%>
+        </div>
+<% end %>
+
+</div>
+</section>
+
+</div>
+  
