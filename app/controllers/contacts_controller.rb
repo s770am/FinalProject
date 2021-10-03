@@ -1,13 +1,12 @@
 class ContactsController < ApplicationController
     def index
-        if current_team_member.admin
-            @contacts = Contact.where(team_id: current_team_member.team_id)
-        else
-            @contacts = Contact.where(team_id: current_team_member.team_id, team_member_id: current_team_member.id)
-        end
-
         @contacts = Contact.filtered(query_params)
-        
+
+        if current_team_member.admin
+            @contacts = @contacts.where(team_id: current_team_member.team_id)
+        else
+            @contacts= @contacts.where(team_id: current_team_member.team_id, team_member_id: current_team_member.id)
+        end
         
     end
   

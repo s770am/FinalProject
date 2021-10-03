@@ -7,7 +7,7 @@
         <%= render partial: "contacts/side-bar"%>
     </div>
     <div class="everything-else">
-        <h1><%= @team.name %> | <%= @team.team_code %></h1>
+        <h1><%= @team.name %> | Team Code: <%= @team.team_code %></h1>
         <% @members.each do |member| %>
             <% if member.admin==true %>
                 <li class="dropdown-show admin-list"><button type="button" id="mail">&#9993;</button><span class="team-member-list"><span class="member-face">&#9863;</span><span class="member-name"><%= member.name %></span> | <%= member.job %></span></li>

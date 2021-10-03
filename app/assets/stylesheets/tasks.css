@@ -4,7 +4,7 @@
 */
 .new-task-page{
   width: 750px;
-  height: 96vh;
+  height: inherit;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -80,4 +80,21 @@
 
 #next-btn{
   margin: 5px;
+}
+
+#edit-task-btn{
+  background-color: rgb(255, 253, 246);
+  border: solid black 1px;
+  padding: 10px;
+  border-radius: 5%;
+  margin: 5px;
+}
+
+#edit-task-btn:hover{
+  background-color: #EEEEEE;
+}
+
+.edit-task-box{
+  display: flex;
+  justify-content: right;
 }
