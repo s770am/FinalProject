@@ -1,4 +1,36 @@
 .reports-choose{
-
+position: absolute;
+bottom: 0;
+margin: 5vh;
   
+}
+
+.reports-btn{
+height: 7rem;
+width: 10rem;
+margin-left: 6rem;
+margin-right: 6rem;
+border: 1px solid #0077b6;
+border-radius: 10px;
+background-color: #90e0ef;
+font-size: x-large;
+color: #023eba;
+}
+
+.button-box{
+display: flex;
+justify-content: center;
+}
+
+.time-box{
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+  
+}
+
+.time{
+margin-left: 1rem;
+margin-right: 6rem;
+font-weight: bold;
 }
