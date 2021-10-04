@@ -2,12 +2,12 @@ require 'time'
 class ReportsController < ApplicationController
     
     def index
-        puts "-------------#{params['endTime']}"
-        if params['startTime'].present?
+        if params['startTime'].present? && params['endTime'].present?
             
-            tasks = Task.where("created_at > ? AND created_at < ?", params['startTime'], params['endTime'])
-            contacts = Contact.where("created_at > ? AND created_at < ?", params['startTime'], params['endTime'])
-            team_members = TeamMember.where("created_at > ? AND created_at < ?", params['startTime'], params['endTime'])
+            # should change the db but don't have time
+            tasks = Task.where("created_at > ? AND created_at < ?", params['startTime'], params['endTime']).select{|task| TeamMember.find(task.team_member_id).team == current_team}
+            contacts = Contact.where("created_at > ? AND created_at < ? ", params['startTime'], params['endTime']).where(team_id: current_team.id)
+            team_members = TeamMember.where("created_at > ? AND created_at < ? ", params['startTime'], params['endTime']).where(team_id: current_team.id)
 
             # @tname = tasks.map {|task| task.product}.uniq
             @tasksHash = tasks.map {|task| task.product if task.status == "complete"}.tally
@@ -19,8 +19,8 @@ class ReportsController < ApplicationController
                         mTotal_hours += task.total_hours 
                     }
                 }
-                {name: team_members.name, total_hours: mTotal_hours}
-            }
+                {member.name => mTotal_hours}
+            }.reduce Hash.new, :merge
             
 
             render json: {
@@ -32,26 +32,5 @@ class ReportsController < ApplicationController
 
 
         end
-    end
-  
-    def create
-        if !params["report"]["team_member_id"]
-            @team_member=TeamMember.where(team_id: params["team_id"])
-        else
-            @team_member=TeamMember.find(params[:report][:team_member_id])
-        end
-        if !params["report"]["contact_id"]
-            @contact=Contact.where(team_id: params["team_id"])
-        else
-            @contact=Contact.find(params[:report][:contact_id])
-        end
-        if !params["report"]["task_id"]
-            @task=Task.where(team_id: params["team_id"])
-        else
-            @task=Task.find(params[:report][:task_id])
-        end
-    end
-  
-    def destroy
     end
 end

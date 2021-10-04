@@ -15,11 +15,18 @@ document.addEventListener('DOMContentLoaded',(e)=>{
     const membersSubmit = document.getElementById("members-submit");
 
     // helper methods
+    validate = (string) => {
+        if (string == "") {
+            return "Incomplete"
+        }
+        return string
+    }
+
     generateRows = (datahash) => {
         array = [];
-        datahash.forEach(element => {
-            array.push(["test", 5])
-        });
+        for (const property in datahash) {
+            array.push([validate(property), datahash[property]]);
+          }
         return array
     }
 
@@ -43,7 +50,7 @@ document.addEventListener('DOMContentLoaded',(e)=>{
 
         // Set chart options
         var options = {'title':'my graph',
-                       'width':500,
+                       'width':800,
                        'height':300};
 
         // Instantiate and draw our chart, passing in some options.
@@ -76,6 +83,7 @@ document.addEventListener('DOMContentLoaded',(e)=>{
             console.log( data);
             switch (reportsType) {
                 case 'tasks':
+                    console.log(data.tasksHash);
                     createGraph(data.tasksHash, "times completed");
                 break;
                 case 'contacts':

@@ -13,17 +13,19 @@
 
         <div class="reports-choose">
 
-            <div class="myForm">
+            <div class="time-box">
             <p id="hiddenfield" hidden><%=current_team.id%></p>
             <label for="start_time">Start Time</label>
             <input type="date" id="start_time" >
 
             <label for="end_time">End Time</label>
             <input type="date" id="end_time" >
+            </div>
 
-            <input type="button" value="task" id="task-submit">
-            <input type="button" value="contacts" id="contacts-submit">
-            <input type="button" value="members" id="members-submit">
+            <div class="button-box">
+            <input type="button" value="task" id="task-submit" class="reports-btn">
+            <input type="button" value="contacts" id="contacts-submit" class="reports-btn">
+            <input type="button" value="members" id="members-submit" class="reports-btn">
             
              </div>
 
@@ -35,4 +37,3 @@
 
     </div>
 </div>
-index reports
