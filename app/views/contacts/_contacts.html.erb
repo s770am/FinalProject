@@ -1,55 +1,13 @@
 <%= javascript_pack_tag "edit_contact" %>
 <link rel="stylesheet" type="text/css" href="http://ws1.postescanada-canadapost.ca/css/addresscomplete-2.30.min.css?key=md66-zu85-gd85-ry65" /><script type="text/javascript" src="http://ws1.postescanada-canadapost.ca/js/addresscomplete-2.30.min.js?key=md66-zu85-gd85-ry65"></script>
 <link rel="stylesheet" type="text/css" href="http://ws1.postescanada-canadapost.ca/css/addresscomplete-2.30.min.css?key=hr63-jk72-wd53-db66" /><script type="text/javascript" src="http://ws1.postescanada-canadapost.ca/js/addresscomplete-2.30.min.js?key=hr63-jk72-wd53-db66"></script>
-<%= form_for([@team, @contact]) do |f| %>
-        <div class="contact-form">
-                <div class="contact-form-field">
-                <%= f.label :name %>
-                </div>
-
-                <div class="contact-form-field">
-                <%= f.text_field :name, class: "contact-field name-field" %>
-                </div>
-
-                <div class="contact-form-field">
-                <%= f.label :email %>
-                </div>
-
-                <div class="contact-form-field">
-                <%= f.email_field :email, class: "contact-field email-field" %>
-                </div>
-
-                <div class="contact-form-field">
-                <%= f.label :number %>
-                </div>
-
-                <div class="contact-form-field">
-                <%= f.text_field :number, class: "contact-field number-field" %>
-                </div>
-
-                <div class="contact-form-field">
-                <%= f.label :birthdate %>
-                </div>
-
-                <div class="contact-form-field">
-                <%= f.date_field :birthdate, class: "contact-field, date-field" %>
-                </div>
-
-                <div class="contact-form-field">
-                <%= f.label :address %>
-                </div>
-
-                <div class="contact-form-field">
-                <%= f.text_field :address, class: "contact-field address-field" %>
-                </div>
-
-                </div>  
-
-                <div class="btn-box">
-                <%= f.submit class: "contact-btn"%>
-                </div>
-                
-                
-        </div>
-
+<%= form_for [@team, @contact], html: {class: 'box'} do |f| %>
+        <h1><%= action %> contact</h1>
+        <p class="text-muted"> Please enter your contact information:</p> 
+        <%= f.text_field :name, placeholder:"Name", class: "contact-field name-field" %>
+        <%= f.email_field :email, placeholder:"Email", class: "contact-field email-field" %>
+        <%= f.text_field :number, placeholder:"Phone number", class: "contact-field number-field" %>
+        <%= f.date_field :birthdate, class: "contact-field, date-field" %>
+        <%= f.text_field :address, placeholder:"Address", class: "contact-field address-field" %>
+        <%= f.submit "#{action} contact" %>
 <% end %>
