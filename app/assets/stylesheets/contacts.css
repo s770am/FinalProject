@@ -197,11 +197,11 @@ flex-wrap: wrap;
 }
 
 .link-to-contact {
-  color: #0077b6;
+  color: #023eba;
 }
 
 .link-to-contact:hover{
-  color: #023eba;
+  color: #0242c4;
 }
 
 /* this is the style fot contact form */

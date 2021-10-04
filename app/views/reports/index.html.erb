@@ -5,6 +5,7 @@
         <%= render partial: "contacts/side-bar"%>
     </div>
     <div class="everything-else">
+        <h1 class="report title">Generate Report</h1>
 
         <div class="reports-box">
         
@@ -15,17 +16,24 @@
 
             <div class="time-box">
             <p id="hiddenfield" hidden><%=current_team.id%></p>
-            <label for="start_time">Start Time</label>
-            <input type="date" id="start_time" >
 
+            <div class="time">
+            <label for="start_time">Start Time</label>
+            <input type="date" id="start_time" >            
+            </div>
+
+            <div class="time">
             <label for="end_time">End Time</label>
-            <input type="date" id="end_time" >
+            <input type="date" id="end_time" >            
+            </div>
+
+
             </div>
 
             <div class="button-box">
-            <input type="button" value="task" id="task-submit" class="reports-btn">
-            <input type="button" value="contacts" id="contacts-submit" class="reports-btn">
-            <input type="button" value="members" id="members-submit" class="reports-btn">
+            <input type="button" value="TASKS" id="task-submit" class="reports-btn">
+            <input type="button" value="CONTACTS" id="contacts-submit" class="reports-btn">
+            <input type="button" value="MEMBERS" id="members-submit" class="reports-btn">
             
              </div>
 
