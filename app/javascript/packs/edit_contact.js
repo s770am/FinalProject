@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded',(e)=>{
 
-    console.log("loaded")
 
     //planning to usev the other selecter for varification if i have time
     const nameField = document.querySelector(".name-field");

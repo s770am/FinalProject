@@ -1,9 +1,38 @@
+<%= javascript_pack_tag "index_reports" %>
+
 <div class="with-side-bar">
     <div class="partial">
         <%= render partial: "contacts/side-bar"%>
     </div>
     <div class="everything-else">
-        <%= link_to "Generate report",new_team_report_path(@team)%>
+
+        <div class="reports-box">
+        
+        
+        </div>
+
+        <div class="reports-choose">
+
+            <div class="myForm">
+            <p id="hiddenfield" hidden><%=current_team.id%></p>
+            <label for="start_time">Start Time</label>
+            <input type="date" id="start_time" >
+
+            <label for="end_time">End Time</label>
+            <input type="date" id="end_time" >
+
+            <input type="button" value="task" id="task-submit">
+            <input type="button" value="contacts" id="contacts-submit">
+            <input type="button" value="members" id="members-submit">
+            
+             </div>
+
+            
+        </div>
+
+
+
+
     </div>
 </div>
 index reports

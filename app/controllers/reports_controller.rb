@@ -1,19 +1,37 @@
+require 'time'
 class ReportsController < ApplicationController
     
     def index
-        @team=Team.find(params[:team_id])
-    end
-  
-    def show
-    end
-  
-    def new
-        @team=Team.find(params[:team_id])
-        @team_members=@team.team_members
-        @contacts=@team.contacts
-        @team_member_ids=@team_members.select{|t| t.id}
-        @tasks=Task.where(team_member_id:@team_member_ids)
-        @report=Report.new
+        puts "-------------#{params['endTime']}"
+        if params['startTime'].present?
+            
+            tasks = Task.where("created_at > ? AND created_at < ?", params['startTime'], params['endTime'])
+            contacts = Contact.where("created_at > ? AND created_at < ?", params['startTime'], params['endTime'])
+            team_members = TeamMember.where("created_at > ? AND created_at < ?", params['startTime'], params['endTime'])
+
+            # @tname = tasks.map {|task| task.product}.uniq
+            @ncomplete = tasks.map {|task| task.product if task.status == "complete"}.tally
+            @nContacts = tasks.map {|task| task.product}.tally
+            @nHourTask = team_members.map { |member|
+                mTotal_hours = 0
+                member.contacts.each{ |contact|
+                    contact.tasks.each{|task|
+                        mTotal_hours += task.total_hours 
+                    }
+                }
+                {name: team_members.name, total_hours: mTotal_hours}
+            }
+            
+
+            render json: {
+                "team_members": @nHourTask,
+                "ncomplete": @ncomplete,
+                "nContacts": @nContacts
+
+            }
+
+
+        end
     end
   
     def create
