@@ -1,12 +1,14 @@
 
 <%= javascript_pack_tag 'team_member_index' %>
-<div class="notice"><%= flash[:notice] %></div>
-<div class="alert"><%= flash[:alert] %></div>
+
+
 <div class="with-side-bar">
     <div class="partial">
         <%= render partial: "contacts/side-bar"%>
     </div>
     <div class="everything-else">
+    <div class="alert"><%= flash[:alert] %></div>
+    <div class="notice"><%= flash[:notice] %></div>
         <h1><%= @team.name %> | Team Code: <%= @team.team_code %></h1>
         <% @members.each do |member| %>
             <% if member.admin==true %>

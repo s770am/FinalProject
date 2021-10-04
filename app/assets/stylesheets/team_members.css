@@ -56,7 +56,7 @@
 
 .message-subject{
   width: 650px;
-  height: 25px;
+  height: 40px;
   margin: 5px;
 }
 
@@ -67,7 +67,7 @@
 }
 
 .message-button{
-  width: 80px;
+  width: 100px;
   height: 40px;
   margin: 5px;
 }
