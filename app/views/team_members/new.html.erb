@@ -1,40 +1,29 @@
 <%= javascript_pack_tag "new_team_member" %>
-<div class="team-member-new-page">
-    <div class="team-member-form">
-    <% if !@team_member.errors.messages.empty? %>
-        <% @team_member.errors.full_messages.each do |msg| %>
-            <li class="error-msg"><%= msg %></li>
-        <%  end %>
-    <% end %>
-    <h1>Create Account</h1>
-        <%= form_for @team_member do |f| %>
-            <div class="form">
-                <%= f.text_field :name, placeholder: "Name" %>
+<% if !@team_member.errors.messages.empty? %>
+    <% @team_member.errors.full_messages.each do |msg| %>
+        <li class="error-msg"><%= msg %></li>
+    <%  end %>
+<% end %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <%= form_for @team_member, html: {class: 'box'} do |f| %>
+                    <h1>Create Account</h1>
+                    <p class="text-muted"> Please enter your information:</p> 
+                    <%= f.text_field :name, placeholder:"Name" %>
+                    <%= f.email_field :email, placeholder:"Email" %>
+                    <%= f.text_field :job, placeholder:"Job" %>
+                    <%= f.password_field :password, placeholder:"Password" %>
+                    <%= f.password_field :password_confirmation, placeholder:"Confirm Password" %>
+                    <%= f.radio_button :admin, "true" %>
+                    <%= f.label :admin, "I am creating a team",id:"admin-label" %>
+                    <%= f.radio_button :admin, "false" %>
+                    <%= f.label :admin, "I am already in a team",id:"admin-label" %>
+                    <%= f.text_field :team_id, placeholder: "Team code",value:"empty" %>
+                    <%= f.submit "Create Account" %>
+                <% end %>
             </div>
-            <div class="form">
-                <%= f.email_field :email, placeholder: "Email" %>
-            </div>
-            <div class="form">
-                <%= f.text_field :job, placeholder: "Job" %>
-            </div>
-            <div class="form">
-                <%= f.password_field :password, placeholder: "Password" %>
-            </div>
-            <div class="form">
-                <%= f.password_field :password_confirmation, placeholder: "Re-enter your password" %>
-            </div>
-            <div class="form">
-                <%= f.radio_button :admin, "true" %>
-                <%= f.label :admin, "I am creating a team" %>
-                <%= f.radio_button :admin, "false" %>
-                <%= f.label :admin, "I am already in a team" %>
-            </div>
-            <div class="form">
-                <%= f.text_field :team_id, placeholder: "Team code",value:"empty" %>
-            </div>
-            <div class="form" id="submit">
-                <%= f.submit "Create Account" %>
-            </div>
-        <% end %>
+        </div>
     </div>
 </div>

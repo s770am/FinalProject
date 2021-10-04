@@ -23,8 +23,6 @@ body{
 
 }
 
-
-
 .links-list{
   display: flex;
   flex-wrap: wrap;
@@ -253,16 +251,6 @@ flex-wrap: wrap;
   color: #023eba;
   font-size: xx-large;
   text-decoration: underline;
-}
-
-.contact-btn{
-  text-align: center;
-  border: 1px solid #0077b6;
-  background-color: #90e0ef;
-  width: 12rem;
-  height: 2rem;
-
-  font-size: 1.2rem;
 }
 
 .btn-box{

@@ -2,7 +2,9 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
-
+#admin-label{
+  color: #3498db;
+}
 
 .everything-else{
   margin: 15px;

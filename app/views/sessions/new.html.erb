@@ -1,25 +1,16 @@
-<div class="login">
-    <div class="logo">
-        <%= image_tag ("monkey-for-logo.jpg"), class: "logo-medium" %>
-    </div>
-    <div class="login-form">
-    
-    <% if flash[:error] %>
-      <p><%= flash[:error]%> </p>
-    <% end %>
-
-    
-        <%= form_for :session, url: sessions_path do |f| %>
-            <div class="form">
-                <%= f.email_field :email, placeholder: "Email" %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <%= form_for :session, url: sessions_path, method: :post, html: {class: 'box'} do |f| %>
+                    <h1>Login</h1>
+                    <p class="text-muted"> Please enter your login and password:</p> 
+                    <%= f.text_field :email, placeholder:"Email" %>
+                    <%= f.password_field :password, placeholder:"Password" %>
+                    <%= link_to "Don't have an account?",new_team_member_path, class:"forgot text-muted" %>
+                    <%= f.submit "Login" %>
+                <% end %>
             </div>
-            <div class="form">
-                <%= f.password_field :password, placeholder: "Password" %>
-            </div>
-            <div class="form">
-                <%= f.submit "Sign In" %>
-            </div>
-        <% end %>
-        <%= link_to "Create Account",new_team_member_path,{id:"create-account"} %>
+        </div>
     </div>
 </div>
