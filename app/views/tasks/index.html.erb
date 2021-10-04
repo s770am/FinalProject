@@ -8,14 +8,14 @@
     <div class="calender-btns">
             <%= form_tag team_tasks_path, :method=>'get' do %>
             <%= button_tag(type: "submit",id:"previous-btn", name:"commit", class: "btn btn-default", value: "previous") do %>
-            <i class="fas fa-angle-left"></i> Previous 
+            Previous 
             <% end %>
         <% end %>
 
 
         <%= form_tag team_tasks_path, :method=>'get' do %>
             <%= button_tag(type: "submit",id:"next-btn", name:"commit", class: "btn btn-default", value: "next") do %>
-            Next <i class="fas fa-angle-right"></i>
+            Next
             <% end %>
         <% end %>
     
