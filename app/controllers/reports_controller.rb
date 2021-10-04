@@ -10,9 +10,9 @@ class ReportsController < ApplicationController
             team_members = TeamMember.where("created_at > ? AND created_at < ?", params['startTime'], params['endTime'])
 
             # @tname = tasks.map {|task| task.product}.uniq
-            @ncomplete = tasks.map {|task| task.product if task.status == "complete"}.tally
-            @nContacts = tasks.map {|task| task.product}.tally
-            @nHourTask = team_members.map { |member|
+            @tasksHash = tasks.map {|task| task.product if task.status == "complete"}.tally
+            @ContactsHash = tasks.map {|task| task.product}.tally
+            @teamMembersHash = team_members.map { |member|
                 mTotal_hours = 0
                 member.contacts.each{ |contact|
                     contact.tasks.each{|task|
@@ -24,9 +24,9 @@ class ReportsController < ApplicationController
             
 
             render json: {
-                "team_members": @nHourTask,
-                "ncomplete": @ncomplete,
-                "nContacts": @nContacts
+                "tasksHash": @tasksHash,
+                "ContactsHash": @ContactsHash,
+                "teamMembersHash": @teamMembersHash
 
             }
 

@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded',(e)=>{
 
     console.log("loaded")
@@ -11,6 +13,45 @@ document.addEventListener('DOMContentLoaded',(e)=>{
     const taskSubmit = document.getElementById("task-submit");
     const contactsSubmit = document.getElementById("contacts-submit");
     const membersSubmit = document.getElementById("members-submit");
+
+    // helper methods
+    generateRows = (datahash) => {
+        array = [];
+        datahash.forEach(element => {
+            array.push(["test", 5])
+        });
+        return array
+    }
+
+
+    createGraph = (dataHash, unit) => {
+        google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+         var data = new google.visualization.DataTable();
+         data.addColumn('string', "task");
+         data.addColumn('number', unit);
+         data.addRows(generateRows(dataHash));
+
+        // Set chart options
+        var options = {'title':'my graph',
+                       'width':500,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.BarChart(document.querySelector(".reports-box"));
+        chart.draw(data, options);
+      }
+    };
+
 
       //our send method
       const filterPosts = (reportsType) => {
@@ -33,20 +74,20 @@ document.addEventListener('DOMContentLoaded',(e)=>{
         .then(data => {
 
             console.log( data);
-            // switch (reportsType) {
-            //     case 'tasks':
-            //         createGraph(newHashMaker("tName", "nComplete"));
-            //     break;
-            //     case 'contacts':
-            //         createGraph(newHashMaker("tName", "nContacts"));
-            //     break;
-            //     case 'members':
-            //         createGraph(newHashMaker("Mname", "nHourTask"));
-            //     break;
+            switch (reportsType) {
+                case 'tasks':
+                    createGraph(data.tasksHash, "times completed");
+                break;
+                case 'contacts':
+                    createGraph(data.ContactsHash, "people serviced");
+                break;
+                case 'members':
+                    createGraph(data.teamMembersHash, "hours worked");
+                break;
             
-            //     default:
-            //         break;
-            // }
+                default:
+                    break;
+            }
         })
         .catch((err) => console.log(err));
       }
@@ -58,6 +99,3 @@ document.addEventListener('DOMContentLoaded',(e)=>{
 
 });
 
-newHashMaker = (x, y) => {
-
-};
