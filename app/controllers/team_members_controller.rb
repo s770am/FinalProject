@@ -21,7 +21,7 @@ class TeamMembersController < ApplicationController
                     done=true
                 end
             end
-            team=Team.create(name: @team_member.name,team_code:code )
+            team=Team.create(name: "Adaleg Final Project",team_code:code )
             @team_member.team_id=team.id
         elsif params["team_member"]["admin"]=="false"
             all=Team.all
