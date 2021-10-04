@@ -13,20 +13,32 @@
  *= require_tree .
  *= require_self
  */
+ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+ @import '@fortawesome/fontawesome-free/scss/fontawesome';
+ @import '@fortawesome/fontawesome-free/scss/solid';
+ @import '@fortawesome/fontawesome-free/scss/regular';
+ @import '@fortawesome/fontawesome-free/scss/brands';
+ @import '@fortawesome/fontawesome-free/scss/v4-shims';
+ 
+
  .notice{
     background-color: lightgreen;
     font-size: 200%;
 }
 
 .alert{
-    background-color: lightcoral;
     font-size: 200%;
 }
 
 .error-msg{
-    background-color: lightcoral;
+
     font-size: 200%;
     list-style-type: none;
     width: 95%;
     margin: 1px;
 }
+
+* {  
+    font-family: 'Poppins', Arial, Helvetica, sans-serif  !important;
+}
+

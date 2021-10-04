@@ -4,11 +4,6 @@
 
 <section class="right-side-contact">
 
-<div class="top-bar">
-<h1 class="member-name"><%= current_team_member[:name].titleize%> | <%= current_team_member[:job].titleize%></h1>
-
-<h1 class="member-name ">Edit Contact For <%= @contact.name.titleize %></h1>
-</div>
 <div class="col-md-6">
     <div class="card">
         <%= render "contacts", action: "Edit" %>
