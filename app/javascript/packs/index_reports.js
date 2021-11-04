@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded',(e)=>{
         }).then((response)=>response.json())
         .then(data => {
 
-            console.log( data);
+            console.log(data);
             switch (reportsType) {
                 case 'tasks':
                     console.log(data.tasksHash);

@@ -73,7 +73,10 @@ a.side-bar-link{
 
 
 
-
+  .notes{
+    background-color: mediumblue;
+    width: 60px;
+  }
 
 
 
@@ -161,7 +164,7 @@ a.side-bar-link{
 
 #delete-note{
   display: block;
-  width: 40px;
+  width: 50px;
   border: solid black 1px;
   margin: 15px 0;
   background-color: rgb(255, 253, 246);

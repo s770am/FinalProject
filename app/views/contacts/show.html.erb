@@ -21,7 +21,7 @@
                         <%=form_for [@contact.team, @contact, note] do |f| %> <%=f.submit "pin"%> <% end %>
                         <%= note.created_at %>
                         <p><%= note.text %></p>
-                        <%= link_to "delete",team_contact_note_path(@contact.team, @contact, note),method: :delete,id:"delete-note", data: {confirm:"Are you sure you want to delete this note?"} %></li>
+                        <%= link_to "delete",team_contact_note_path(@contact.team, @contact, note),class: "notes",method: :delete,id:"delete-note", data: {confirm:"Are you sure you want to delete this note?"} %></li>
                     <% end %>
                 <% end %>
             </div>

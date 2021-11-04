@@ -25,13 +25,17 @@ class TasksController < ApplicationController
     end
   
     def create
-        @task=Task.new(task_params)
-        @contact=Contact.find(params[:contact_id])
-        @task.contact_id=@contact.id
-        @task.contact_name=@contact.name
-        @team_member=@contact.team_member
-        @task.team_member_id=@team_member.id
-        @task.date=Time.now.strftime("%m-%d-%Y")
+        @task = Task.new(task_params)
+        @contact = Contact.find(params[:contact_id])
+        
+        # added in for fix
+        @task.team_id = current_team.id
+
+        @task.contact_id = @contact.id
+        @task.contact_name = @contact.name
+        @team_member = @contact.team_member
+        @task.team_member_id = @team_member.id
+        @task.date = Time.now.strftime("%m-%d-%Y")
         if @task.save
             redirect_to team_contact_url(@team_member.team,@contact)
         else
@@ -54,6 +58,9 @@ class TasksController < ApplicationController
     end
   
     def destroy
+        @task = Task.find(params[:id])
+        @task.destroy
+        redirect_to team_tasks_url(current_team_member[:team_id])
     end
 
     private
