@@ -17,7 +17,7 @@
                 </div>
                 <div class="new-task-page-right">
                     <%= form_for [@contact.team, @contact, @task] do |f| %>
-                        <div class="new-task-content"><%= f.text_area :status, id:"task-text-area", placeholder:"Input here" %></div>
+                        <div class="new-task-content"> <%= f.select :status, ['complete', 'not complete'], class:"task-text-dropdown", value: 'not complete' %> </div>
                         <div class="new-task-content"><%= f.text_area :product, id:"task-text-area", placeholder:"Input here" %></div>
                         <div class="new-task-content"><%= f.text_area :total_hours, id:"task-text-area", placeholder:"Input here" %></div>
                         <div class="new-task-content"><%= f.text_area :progress, id:"task-text-area", placeholder:"Input here" %></div>

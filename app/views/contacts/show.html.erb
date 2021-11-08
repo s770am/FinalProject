@@ -1,9 +1,10 @@
-<div class="alert"><%= flash[:alert] %></div>
+
 <div class="with-side-bar">
     <div class="partial">
         <%= render partial: "side-bar" %>
     </div>
     <div class="everything-else">
+    <div class="alert"><%= flash[:alert] %></div>
         <div class="contact-page">
             <div class="contact-page-left">
                 <% @notes.each do |note| %>
