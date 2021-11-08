@@ -82,9 +82,9 @@
   margin: 5px;
 }
 
-#edit-task-btn{
+.edit-task-btn{
   background-color: rgb(255, 253, 246);
-  border: solid black 1px;
+  border: solid black 2px;
   padding: 10px;
   border-radius: 5%;
   margin: 5px;
@@ -94,9 +94,17 @@
   background-color: #EEEEEE;
 }
 
+.edit-option-boxs{
+width: 100%;
+display: flex;
+
+
+}
+
 .edit-task-box{
   display: flex;
-  justify-content: right;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .calender-btns{

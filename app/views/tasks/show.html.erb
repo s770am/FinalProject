@@ -23,8 +23,12 @@
                     <div class="new-task-content"><%= @task.goal %></div>
                     <div class="new-task-content"><%= @task.note %></div>
                 </div>
-                <div class="edit-task-box"><%= link_to "Edit task",edit_team_contact_task_path(@team,@task.contact_id,@task),id:"edit-task-btn" %></div>
-                <div class="edit-task-box"> <%= link_to "Delete",team_contact_task_path(current_team, @task.id),method: :delete, data: {confirm:"Are you sure you want to delete this task?"} %></div>
+
+                
+                <div class="edit-task-box"><%= link_to "Edit task",edit_team_contact_task_path(@team,@task.contact_id,@task), class: "edit-task-btn" %></div>
+                <div class="edit-task-box"><%= link_to "Delete",team_contact_task_path(current_team, @task.id), class: "edit-task-btn", method: :delete, data: {confirm:"Are you sure you want to delete this task?"} %></div>
+                
+                
             </div>
         </div>
     </div>
