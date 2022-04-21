@@ -102,15 +102,3 @@ input[type="radio"]{
 #team_member_team_id{
   display: none;
 }
-
-.field_with_errors>#team_member_name,
-.field_with_errors>#team_member_email,
-.field_with_errors>#team_member_job,
-.field_with_errors>#team_member_password,
-.field_with_errors>#team_member_password_confirmation,
-.field_with_errors>#team_member_team_id{
-  height: 30px;
-  width: 350px;
-  background-color: lightcoral;
-  margin: 30px 0;
-}
