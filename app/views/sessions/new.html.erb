@@ -4,7 +4,8 @@
             <div class="card">
                 <%= form_for :session, url: sessions_path, method: :post, html: {class: 'box'} do |f| %>
                     <h1>Login</h1>
-                    <p class="text-muted"> Please enter your login and password:</p> 
+                    <p class="text-muted"> Please enter your login and password:</p>
+                    <div class="form-flash"><%= flash[:error] %></div> 
                     <%= f.text_field :email, placeholder:"Email" %>
                     <%= f.password_field :password, placeholder:"Password" %>
                     <%= link_to "Don't have an account?",new_team_member_path, class:"forgot text-muted" %>
