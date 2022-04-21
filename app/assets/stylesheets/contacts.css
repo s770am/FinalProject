@@ -49,24 +49,39 @@ body{
 
 .side-bar-link{
   display:inline-block;
-  padding:0.3em 1.2em;
-  margin:0 0.5em 0.5em 0;
-  border-radius:2em;
-  box-sizing: border-box;
-  text-decoration:none;
   font-family:'Roboto',sans-serif;
   font-weight:300;
   color:#FFFFFF;
-  background-color:#4eb5f1;
+  background-color: transparent;
   text-align:center;
   transition: all 0.2s;
   border: none;
-  width: 7rem;
+  text-decoration: none;
+  padding: .3em 1.2em;
+  }
+  
+  .icon-link{
+    display: flex;
+    align-items: center;
+    background-color:#4eb5f1;
+    border-radius:2em;
+    box-sizing: border-box;
+    margin:0 0.5em 0.5em 0;
+  }
+  
+  .icon-link:hover{
+   background-color:#0077b6;
+  }
+
+  .icon-link:hover>#mail{
+    transform: rotate(360deg);
+    transition: all 0.7s;
   }
 
   .side-bar-link:hover{
-   background-color:#4095c6;
+    color: #FFFFFF;
   }
+
   @media all and (max-width:30em){
   .side-bar-link{
   display:block;
