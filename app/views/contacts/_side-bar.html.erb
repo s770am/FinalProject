@@ -4,7 +4,6 @@
 <%= link_to image_tag("document_icon.jpg", class: "logo-small"  ), team_contacts_path(current_team_member[:team_id])%>
 <ul class="links-list">
 
-
 <%= link_to "Messages",  team_team_member_messages_path(current_team_member[:team_id],current_team_member), class: "side-bar-link" %>
 
 <% if current_team_member.admin %>
@@ -15,8 +14,7 @@
 <%= link_to "Team page",  team_team_members_path(current_team_member[:team_id]), class: "side-bar-link" %>
 <%= link_to "Add Contact",  new_team_contact_path(current_team_member[:team_id]), class: "side-bar-link" %>
 <%= link_to "Contacts",  team_contacts_path(current_team_member[:team_id]), class: "side-bar-link" %>
-<%= link_to "Sign Out", sessions_path, method: :delete, class: "side-bar-link" %>
-
+<%= button_to 'Sign Out', sessions_path, method: :delete, class: "side-bar-link" %>
 
 </ul>
 
