@@ -89,3 +89,16 @@ body {
   --bs-text-opacity: 1;
   color: #6c757d;
 }
+
+.field_with_errors> input[type="text"],
+.field_with_errors> input[type="email"],
+.field_with_errors> input[type="date"],
+.field_with_errors> input[type="password"]{
+  border: 2px solid #b92b27;
+}
+
+.authorization{
+  background: linear-gradient(to right, #1565c0, #b92b27);
+  font-size: xx-large;
+  color: white;
+}

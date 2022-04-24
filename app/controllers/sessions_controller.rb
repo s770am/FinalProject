@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
     end
   
     def destroy
-        session[:user_id] = nil
+        session[:team_member] = nil
         redirect_to root_url
     end
 end

@@ -17,7 +17,7 @@
                     <%= f.text_field :job, placeholder:"Job" %>
                     <%= f.password_field :password, placeholder:"Password" %>
                     <%= f.password_field :password_confirmation, placeholder:"Confirm Password" %>
-                    <%= f.radio_button :admin, "true" %>
+                    <%= f.radio_button :admin, "true", value: "", checked: "checked" %>
                     <%= f.label :admin, "I am creating a team",id:"admin-label" %>
                     <%= f.radio_button :admin, "false" %>
                     <%= f.label :admin, "I am already in a team",id:"admin-label" %>
