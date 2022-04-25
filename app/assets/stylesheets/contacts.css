@@ -167,17 +167,37 @@ body{
   margin: 20px;
 }
 
-.contact-button>a{
+.contact-button>a,
+.contact-button>button,
+#button-delete{
   text-decoration: none;
   color: black;
   background-color: rgb(255, 253, 246);
   border: solid black 1px;
   padding: 10px;
   border-radius: 5%;
-  font-size: larger;
+  font-size: 1.25rem;
 }
 
-.contact-button>a:hover{
+#button-delete,
+.contact-button>button{
+  padding: 7px;
+}
+
+#button-delete{
+  display: none;
+  background-color: #b92b27;
+  color: white;
+}
+
+#button-delete:hover{
+  background-color: rgb(255, 253, 246);
+  color: black;
+}
+
+.contact-button>a:hover,
+.contact-button>button:hover,
+#button-delete:hover{
   background-color: #EEEEEE;
 }
 
@@ -212,7 +232,7 @@ body{
 .search-button{
   height: 2rem;
   width: 4rem;
-  background-color: #90e0ef;
+  background-color: #4eb5f1;
   border: 1px solid #0077b6;
 }
 

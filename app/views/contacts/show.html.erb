@@ -1,4 +1,4 @@
-
+<%= javascript_pack_tag "show-contact" %>
 <div class="with-side-bar">
     <div class="partial">
         <%= render partial: "side-bar" %>
@@ -22,7 +22,7 @@
                         <%=form_for [@contact.team, @contact, note] do |f| %> <%=f.submit "pin"%> <% end %>
                         <%= note.created_at %>
                         <p><%= note.text %></p>
-                        <%= link_to "delete",team_contact_note_path(@contact.team, @contact, note),class: "notes",method: :delete,id:"delete-note", data: {confirm:"Are you sure you want to delete this note?"} %></li>
+                        <%= button_to 'delete', team_contact_note_path(@contact.team, @contact, note), class: "notes", method: :delete, id:"delete-note", data: {confirm:"Are you sure you want to delete this note?"} %></li>
                     <% end %>
                 <% end %>
             </div>
@@ -35,7 +35,8 @@
                 <div class="contact-buttons">
                     <div class="contact-button"><%= link_to "Add task",new_team_contact_task_path(@contact.team, @contact) %></div>
                     <div class="contact-button"><%= link_to "Edit contact",edit_team_contact_path(@contact.team, @contact) %></div>
-                    <div class="contact-button"><%= link_to "Delete contact",team_contact_path(@contact.team, @contact),method: :delete, data: {confirm:"Are you sure you want to delete this contact?"} %></div>
+                    <div class="contact-button"><button id=fake-delete>Delete Contact</button></div>
+                    <div class="contact-button"><%= button_to 'Delete contact', team_contact_path(@contact.team, @contact), id:'button-delete', method: :delete, data: {confirm:"Are you sure you want to delete this contact?"} %></div>
                 </div>
             </div>
         </div>
