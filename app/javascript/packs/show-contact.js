@@ -4,44 +4,13 @@ document.addEventListener('DOMContentLoaded',(e)=>{
     let realButton=document.getElementById("button-delete");
 
     fakeButton.addEventListener('click', (e)=>{
-        fakeButton.innerHTML='Cancel';
-        realButton.style.display='unset';
-        fakeButton.addEventListener('click', (e)=>{
+        if(fakeButton.innerHTML==='Delete Contact'){
+            fakeButton.innerHTML='Cancel';
+            realButton.style.display='unset';
+        }else if(fakeButton.innerHTML==='Cancel'){
             fakeButton.innerHTML='Delete Contact';
             realButton.style.display='none';
-            fakeButton.addEventListener('click', (e)=>{
-                fakeButton.innerHTML='Cancel';
-                realButton.style.display='unset';
-                fakeButton.addEventListener('click', (e)=>{
-                    fakeButton.innerHTML='Delete Contact';
-                    realButton.style.display='none';
-                    fakeButton.addEventListener('click', (e)=>{
-                        fakeButton.innerHTML='Cancel';
-                        realButton.style.display='unset';
-                        fakeButton.addEventListener('click', (e)=>{
-                            fakeButton.innerHTML='Delete Contact';
-                            realButton.style.display='none';
-                            fakeButton.addEventListener('click', (e)=>{
-                                fakeButton.innerHTML='Cancel';
-                                realButton.style.display='unset';
-                                fakeButton.addEventListener('click', (e)=>{
-                                    fakeButton.innerHTML='Delete Contact';
-                                    realButton.style.display='none';
-                                    fakeButton.addEventListener('click', (e)=>{
-                                        fakeButton.innerHTML='Cancel';
-                                        realButton.style.display='unset';
-                                        fakeButton.addEventListener('click', (e)=>{
-                                            fakeButton.innerHTML='Delete Contact';
-                                            realButton.style.display='none';
-                                        });
-                                    });
-                                });
-                            });
-                        });
-                    });
-                });
-            });
-        });
+        };
     });
     
 });
