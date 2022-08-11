@@ -7,24 +7,36 @@
     <div class="alert"><%= flash[:alert] %></div>
         <div class="contact-page">
             <div class="contact-page-left">
-                <% @notes.each do |note| %>
-                    <% if note.pinned==true %>
-                        <div class="pinned"><%= note.created_at %> | <%=form_for [@contact.team, @contact, note] do |f| %> <%=f.submit "unpin"%> <% end %><p><%= note.text %></p></div>
+                <div id="pinned-notes">
+                    <% @notes.each do |note| %>
+                        <% if note.pinned==true %>
+                            <li class="note-listing pinned">
+                            <div id="note-buttons">
+                                <%=form_for [@contact.team, @contact, note] do |f| %> <%=f.submit "unpin"%> <% end %>
+                                <%= button_to 'delete', team_contact_note_path(@contact.team, @contact, note), class: "notes", method: :delete, id:"delete-note" %>
+                            </div>
+                            <strong><%= note.created_at %></strong>
+                            <p><%= note.text %></p></li>
+                        <% end %>
                     <% end %>
-                <% end %>
+                </div>
                 <%= form_for [@contact.team, @contact, @note] do |f| %>
                     <%= f.text_area :text, id:"add-note-area", placeholder:"Add note" %>
                     <%= f.submit "Add note", id:"add-note-button" %>
                 <% end %>
-                <% @notes.each do |note| %>
-                    <% if note.pinned==false %>
-                        <li class="note-listing">
-                        <%=form_for [@contact.team, @contact, note] do |f| %> <%=f.submit "pin"%> <% end %>
-                        <%= note.created_at %>
-                        <p><%= note.text %></p>
-                        <%= button_to 'delete', team_contact_note_path(@contact.team, @contact, note), class: "notes", method: :delete, id:"delete-note", data: {confirm:"Are you sure you want to delete this note?"} %></li>
+                <div id="unpinned-notes">
+                    <% @notes.each do |note| %>
+                        <% if note.pinned==false %>
+                            <li class="note-listing">
+                            <div id="note-buttons">
+                                <%=form_for [@contact.team, @contact, note] do |f| %> <%=f.submit "pin"%> <% end %> 
+                                <%= button_to 'delete', team_contact_note_path(@contact.team, @contact, note), class: "notes", method: :delete, id:"delete-note" %>
+                            </div>
+                            <strong><%= note.created_at %></strong>
+                            <p><%= note.text %></p></li>
+                        <% end %>
                     <% end %>
-                <% end %>
+                </div>
             </div>
             <div class="contact-page-right">
                 <div class="contact-info"><%= @contact.name %></div>
