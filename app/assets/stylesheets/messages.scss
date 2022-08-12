@@ -1,20 +1,32 @@
 // Place all the styles related to the Messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+#msg-label{
+    padding: 15px;
+}
+
 .msg-index{
+    font-size: x-large;
     list-style-type: none;
-    background-color: #90e0ef;
+    background-color: #90e1ef2d;
+    border: 2px solid #0077b6;
+    margin-bottom: 0.5rem;
     width: 90%;
-    border: solid black 1px;
-    font-size: xx-large;
+    padding: 0 10px;
+    display: grid;
+    grid-template-columns:1fr 1fr;
+}
+
+.not-msg-show{
+    cursor: pointer;
 }
 
 .not-msg-show:hover{
-    background-color: #00B4D8;
+    background-color: #90e1ef2d;
 }
 
 .msg-unseen{
-    background-color: #0077b6;
+    background-color: #3caef0;
 }
 
 .msg-show{
@@ -22,14 +34,15 @@
 }
 
 #msg-delete{
-    color: rgba(255, 0, 0, 0.651);
+    width: 100px;
+    height: 40px;
+    margin: 5px;
+    background-color: #3caef0;
 }
 
 #msg-submit{
-    background-color: #90e0ef;
     border: none;
-    font-size: xx-large;
-    color: #0077b6;
+    display: none;
 }
 
 #no-msg{

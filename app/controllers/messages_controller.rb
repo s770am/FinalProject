@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
 
   def create
     msg=params["message"]
-    @message=Message.new(subject: msg["subject"], text: msg["text"], sender: TeamMember.find(params["team_member_id"]).name, team_id: params["team_id"], team_member_id: TeamMember.find_by(name: msg["team_member_id"]).id,read:false)
+    @message=Message.new(subject: msg["subject"], text: msg["text"], sender: TeamMember.find(session[:team_member]).name, team_id: params["team_id"], team_member_id: TeamMember.find_by(name: msg["team_member_id"]).id,read:false)
     if @message.save
       flash[:notice]="message sent"
     else
@@ -18,7 +18,6 @@ class MessagesController < ApplicationController
   def update
     @message=Message.find(params[:id])
     @message.update(read:true)
-    redirect_to team_team_member_messages_url(params["team_id"],params["team_member_id"])
   end
 
   def destroy
@@ -26,4 +25,5 @@ class MessagesController < ApplicationController
     @message.destroy
     redirect_to team_team_member_messages_url(params["team_id"],params["team_member_id"])
   end
+
 end
