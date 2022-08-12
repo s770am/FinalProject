@@ -78,6 +78,7 @@
 
 .team-member-list{
   font-size: xx-large;
+  cursor: pointer;
 }
 
 .team-member-list:hover{
