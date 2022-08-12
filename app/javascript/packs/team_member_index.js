@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded',(e)=>{
     let showlinks=document.querySelectorAll('.team-member-list');
     hidden=document.querySelectorAll('.hidden');
     for (let index = 0; index < showlinks.length; index++) {
-        let member=document.querySelectorAll('.team-member-list')[index];
+        let member=showlinks[index];
         member.addEventListener('click',(e)=>{
             // close open 'show'
             if(current>=0){
@@ -27,10 +27,10 @@ document.addEventListener('DOMContentLoaded',(e)=>{
             };
         });
     };
-    let messageBtn=document.querySelectorAll('#mail');
+    let messageBtn=document.querySelectorAll('#mail-button');
     hiddenMail=document.querySelectorAll('.hidden-add');
     for (let index = 0; index < messageBtn.length; index++) {
-        let message=document.querySelectorAll('#mail')[index];
+        let message=messageBtn[index];
         message.addEventListener('click',(e)=>{
             // close open 'new message'
             if(currentMail>=0){

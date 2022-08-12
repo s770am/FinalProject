@@ -15,10 +15,12 @@
 
 .dropdown-show{
   list-style-type: none;
-  margin: 5px;
-  font-size: xx-large;
-  width: 750px;
-  border: solid #0077B6 1px;
+  background-color: #90e1ef2d;
+  border: 2px solid #0077b6;
+  margin-bottom: 0.5rem;
+  width: 90%;
+  display: grid;
+  grid-template-columns:1fr 1fr;
 }
 
 .admin-list{
@@ -31,15 +33,15 @@
   margin: 5px 10px;
 }
 
-.member-face{
-  background-color: #48CAE4;
-  border-radius: 25px;
-  margin: 5px;
-}
-
 #mail{
   height: 40px;
   font-size: x-large;
+}
+
+#mail-button{
+  font-size: x-large;
+  width: 15rem;
+  background-color: #3caef0;
 }
 
 .member-show-hidden{
@@ -48,6 +50,7 @@
 
 .hidden{
   display: none;
+  font-size: x-large;
 }
 
 .hidden-add{
@@ -70,10 +73,15 @@
   width: 100px;
   height: 40px;
   margin: 5px;
+  background-color: #3caef0;
+}
+
+.team-member-list{
+  font-size: xx-large;
 }
 
 .team-member-list:hover{
-  background-color: #48CAE4;
+  background-color: #3caef0;
 }
 
 .team-member-new-page{
