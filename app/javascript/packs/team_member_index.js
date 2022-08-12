@@ -53,4 +53,33 @@ document.addEventListener('DOMContentLoaded',(e)=>{
             };
         });
     };
+
+
+    // Sending message
+    let sendButton = document.querySelectorAll('#new_message');
+    for (let index = 0; index < sendButton.length; index++) {
+        let form = sendButton[index]
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let body = new FormData(form);
+            fetch(form.action, {
+                method: form.method,
+                body: body,
+                headers: {
+                    Accept: 'text/html'
+                }
+            })
+            .then(() => confirmSend(form))
+            .catch((err) => console.log(err));
+        });
+    };
+
+    // Reset form and give confirmation
+    const confirmSend = (form) => {
+        form.reset()
+        form.style.backgroundColor = 'rgb(29, 170, 29)'
+        form.addEventListener('click', (e) => {
+            form.style.backgroundColor = '#90e1ef2d'
+        });
+    };
 });
