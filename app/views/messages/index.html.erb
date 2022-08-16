@@ -14,8 +14,8 @@
                 </li>
                 <% empty=false %>
                 <li class="msg-index msg-show">
-                    <%=form_for [@member.team, @member, message] do |f| %> <%=f.submit "", id:"msg-submit"%> <% end %>
-                    <div><%= message.text %></div>
+                    <div id="msg-txt"><%=form_for [@member.team, @member, message] do |f| %> <%=f.submit "", id:"msg-submit"%> <% end %>
+                    <%= message.text %></div>
                     <div id="delete-msg"><%= button_to 'delete', team_team_member_message_path(@member.team, @member, message), method: :delete,id:"msg-delete" %></div>
                 </li>
             <% end %>
@@ -28,7 +28,7 @@
                 </li>
                 <% empty=false %>
                 <li class="msg-index msg-show">
-                    <div><%= message.text %></div>
+                    <div id="msg-txt"><%= message.text %></div>
                     <div id="delete-msg"><%= button_to 'delete', team_team_member_message_path(@member.team, @member, message), method: :delete,id:"msg-delete" %></div>
                 </li>
             <% end %>

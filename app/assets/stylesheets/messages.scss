@@ -14,7 +14,12 @@
     width: 90%;
     padding: 0 10px;
     display: grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+#msg-txt{
+    max-width: 300px;
+    overflow-wrap: break-word;
 }
 
 .not-msg-show{
