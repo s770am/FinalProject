@@ -21,6 +21,19 @@
 //  @import '@fortawesome/fontawesome-free/scss/v4-shims';
  
 
+.right-side, .everything-else{
+    height: 95vh;
+    overflow-y: scroll;
+}
+
+.right-side::-webkit-scrollbar{
+    display: none;
+}
+
+.everything-else::-webkit-scrollbar{
+    display: none;
+}
+
  .notice{
     background-color: rgb(29, 170, 29);
     font-size: 200%;
