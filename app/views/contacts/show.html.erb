@@ -6,7 +6,7 @@
     <div class="everything-else">
     <div class="alert"><%= flash[:alert] %></div>
         <div class="contact-page">
-            <div class="contact-page-left">
+            <div id="contact-page-left">
                 <div id="pinned-notes">
                     <% @notes.each do |note| %>
                         <% if note.pinned==true %>
@@ -38,7 +38,7 @@
                     <% end %>
                 </div>
             </div>
-            <div class="contact-page-right">
+            <div id="contact-page-right">
                 <div class="contact-info"><%= @contact.name %></div>
                 <div class="contact-info"><%= @contact.email %></div>
                 <div class="contact-info"><%= @contact.number %></div>
