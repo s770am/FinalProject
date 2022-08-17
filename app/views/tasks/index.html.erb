@@ -1,3 +1,5 @@
+<%= javascript_pack_tag "index_tasks" %>
+
 <div class="with-side-bar">
     <div class="partial">
         <%= render partial: "contacts/side-bar"%>
@@ -58,9 +60,14 @@
                     <% else %>
                         <% daycount=count %>
                     <% end %>
+                    <% if @month<10 %>
+                        <% monthcount="0"+"#{@month}" %>
+                    <% else %>
+                        <% monthcount=@month %>
+                    <% end %>
                     <% @tasks.each do |task| %>
-                        <% if task.date=="#{@month}-#{daycount}-#{@year}" %>
-                            <div class="calendar-task"><%= link_to "#{task.contact_name}",team_contact_task_path(@team_id,task.contact_id,task.id) %></div>
+                        <% if task.date=="#{monthcount}-#{daycount}-#{@year}" %>
+                            <div class="calendar-task"><%= link_to "#{task.contact_name}",team_contact_task_path(@team_id,task.contact_id,task.id), class: "task-link" %></div>
                         <% end %>
                     <% end %>
                 </div>
