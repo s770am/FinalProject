@@ -1,4 +1,7 @@
 class TeamMembersController < ApplicationController
+
+    before_action :require_team
+
     def index
         @team=Team.find(params["team_id"])
         @members=@team.team_members
@@ -41,5 +44,14 @@ class TeamMembersController < ApplicationController
     private
     def create_params
         params.require(:team_member).permit(:name,:email,:password,:password_confirmation,:admin,:job)
+    end
+
+    def require_team
+        @team=Team.find(params[:team_id])
+        unless session[:team_member] && TeamMember.find(session[:team_member]).team.id==@team.id
+            flash[:alert]="You do not have access to that page"
+            session[:team_member]=nil
+            redirect_to root_url
+        end
     end
 end

@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
-     before_action :require_team
+    
+    before_action :require_team
 
     def index
         @contacts = Contact.filtered(query_params)
