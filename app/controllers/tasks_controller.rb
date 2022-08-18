@@ -10,7 +10,11 @@ class TasksController < ApplicationController
         end
         @date=session[:date]
         @team_id=params[:team_id]
-        @tasks=Task.where(team_member_id:session[:team_member])
+        if current_team_member.admin
+            @tasks = Task.where(team_id: current_team.id)
+        else
+            @tasks=Task.where(team_id: current_team.id, team_member_id:session[:team_member])
+        end
         @first_day=Date::DAYNAMES[@date.at_beginning_of_month.wday]
         @month=@date.month
         @year=@date.year
