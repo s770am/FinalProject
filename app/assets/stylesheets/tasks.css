@@ -103,14 +103,17 @@
 }
 
 .edit-task-btn{
+  text-decoration: none;
+  color: black;
   background-color: rgb(255, 253, 246);
   border: solid black 2px;
-  padding: 10px;
+  padding: 5px 20px;
   border-radius: 5%;
-  margin: 5px;
+  margin: 15px;
 }
 
-#edit-task-btn:hover{
+.edit-task-btn:hover{
+  color: black;
   background-color: #EEEEEE;
 }
 
@@ -123,8 +126,6 @@ display: flex;
 
 .edit-task-box{
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
 .calender-btns{
