@@ -8,13 +8,17 @@ margin: 5vh;
 .reports-btn{
 height: 7rem;
 width: 10rem;
-margin-left: 6rem;
-margin-right: 6rem;
-border: 1px solid #0077b6;
+margin-left: 5vw;
+margin-right: 5vw;
+border: 2px solid #0077b6;
 border-radius: 10px;
-background-color: #90e0ef;
+background-color: #4eb5f1;
 font-size: x-large;
-color: #023eba;
+color: white;
+}
+
+.reports-btn:hover{
+  background-color: #0077b6;
 }
 
 .button-box{
