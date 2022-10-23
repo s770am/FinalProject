@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded',(e)=>{
                 show[current].style.display="none";
             };
             // unhide 'show' for that message
-            show[index].style.display='unset';
+            show[index].style.display='grid';
             // if that 'show' is open
             if(current===index){
                 // close 'show'
@@ -22,4 +22,54 @@ document.addEventListener('DOMContentLoaded',(e)=>{
             };
         });
     };
+
+    // JS for opening messages
+    let markRead = document.querySelectorAll('.edit_message');
+    let msgButton = document.querySelectorAll('.not-msg-show');
+    for (let index = 0; index < msgButton.length; index++) {
+        let link = msgButton[index]
+        let form = markRead[index]
+        link.addEventListener('click', (e) => { 
+            let body = new FormData(form);
+            fetch(form.action, {
+                method: form.method,
+                body: body,
+                headers: {
+                    Accept: 'text/html'
+                }
+            })
+            .then(() => messageUpdate(link))
+            .catch((err) => console.log(err));
+        });
+    };
+
+    const messageUpdate = (link) => {
+        link.style.backgroundColor = '#90e1ef2d'
+    };
+
+    // JS for deleting messages
+    let deleteMsg = document.querySelectorAll('#delete-msg > .button_to');
+    for (let index = 0; index < deleteMsg.length; index++) {
+        let form = deleteMsg[index]
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let body = new FormData(form);
+            fetch(form.action, {
+                method: form.method,
+                body: body,
+                headers: {
+                    Accept: 'text/html'
+                }
+            })
+            .then(() => removeNote(index))
+            .catch((err) => console.log(err));
+        });
+    };
+
+    const removeNote = (index) => {
+        let notMsgShow = document.querySelectorAll('.not-msg-show');
+        let msgShow = document.querySelectorAll('.msg-show');
+        notMsgShow[index].style.display = 'none';
+        msgShow[index].style.display = 'none';
+    }
 });

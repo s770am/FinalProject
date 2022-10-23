@@ -14,21 +14,42 @@
  *= require_self
  */
  $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
- @import '@fortawesome/fontawesome-free/scss/fontawesome';
- @import '@fortawesome/fontawesome-free/scss/solid';
- @import '@fortawesome/fontawesome-free/scss/regular';
- @import '@fortawesome/fontawesome-free/scss/brands';
- @import '@fortawesome/fontawesome-free/scss/v4-shims';
+//  @import '@fortawesome/fontawesome-free/scss/fontawesome';
+//  @import '@fortawesome/fontawesome-free/scss/solid';
+//  @import '@fortawesome/fontawesome-free/scss/regular';
+//  @import '@fortawesome/fontawesome-free/scss/brands';
+//  @import '@fortawesome/fontawesome-free/scss/v4-shims';
  
 
+.right-side, .everything-else{
+    height: 95vh;
+    overflow-y: scroll;
+}
+
+.right-side::-webkit-scrollbar{
+    display: none;
+}
+
+.everything-else::-webkit-scrollbar{
+    display: none;
+}
+
  .notice{
-    background-color: lightgreen;
+    background-color: rgb(29, 170, 29);
     font-size: 200%;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .alert{
     font-size: 200%;
     min-height: 0;
+}
+
+.form-flash{
+    font-size: 1rem;
+    color: #b92b27;
+    margin-bottom: 0;
 }
 
 .error-msg{

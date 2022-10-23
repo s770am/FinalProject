@@ -2,7 +2,6 @@
 
 document.addEventListener('DOMContentLoaded',(e)=>{
 
-    console.log("loaded")
 
     // get objs from page
     const hiddenField = document.getElementById("hiddenfield");

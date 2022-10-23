@@ -1,9 +1,5 @@
 <%= javascript_pack_tag "new_team_member" %>
-<% if !@team_member.errors.messages.empty? %>
-    <% @team_member.errors.full_messages.each do |msg| %>
-        <li class="error-msg"><%= msg %></li>
-    <%  end %>
-<% end %>
+
 <div class="container">
     <div class="row">
         <div class="col-md-6">
@@ -11,12 +7,17 @@
                 <%= form_for @team_member, html: {class: 'box'} do |f| %>
                     <h1>Create Account</h1>
                     <p class="text-muted"> Please enter your information:</p> 
+                    <% if !@team_member.errors.messages.empty? %>
+                        <% @team_member.errors.full_messages.each do |msg| %>
+                            <p class="form-flash"><%= msg %></p>
+                        <%  end %>
+                    <% end %>
                     <%= f.text_field :name, placeholder:"Name" %>
                     <%= f.email_field :email, placeholder:"Email" %>
                     <%= f.text_field :job, placeholder:"Job" %>
                     <%= f.password_field :password, placeholder:"Password" %>
                     <%= f.password_field :password_confirmation, placeholder:"Confirm Password" %>
-                    <%= f.radio_button :admin, "true" %>
+                    <%= f.radio_button :admin, "true", value: "", checked: "checked" %>
                     <%= f.label :admin, "I am creating a team",id:"admin-label" %>
                     <%= f.radio_button :admin, "false" %>
                     <%= f.label :admin, "I am already in a team",id:"admin-label" %>

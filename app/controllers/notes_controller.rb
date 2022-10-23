@@ -10,12 +10,12 @@ class NotesController < ApplicationController
   def update
     @note=Note.find(params[:id])
     @notes=Note.where(contact_id: params[:contact_id])
-    if params["commit"]=="pin"
+    if @note.pinned == false
       @notes.each do |note|
         note.update(pinned: false)
       end
       @note.update(pinned: true)
-    elsif params["commit"]=="unpin"
+    elsif @note.pinned == true
       @note.update(pinned: false)
     end
     redirect_to team_contact_url(params["team_id"],params["contact_id"])

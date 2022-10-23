@@ -1,4 +1,7 @@
 class ContactsController < ApplicationController
+    
+    before_action :require_team
+
     def index
         @contacts = Contact.filtered(query_params)
 
@@ -64,6 +67,15 @@ end
 
 def contact_params
     params.require(:contact).permit(:email, :name, :number, :birthdate, :address )
+end
+
+def require_team
+    @team=Team.find(params[:team_id])
+    unless session[:team_member] && TeamMember.find(session[:team_member]).team.id==@team.id
+        flash[:alert]="You do not have access to that page"
+        session[:team_member]=nil
+        redirect_to root_url
+    end
 end
 
 end

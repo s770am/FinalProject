@@ -1,4 +1,7 @@
 class TasksController < ApplicationController
+
+    before_action :require_team
+    
     def index
         if params[:commit]
             calculate(params[:commit])
@@ -7,7 +10,11 @@ class TasksController < ApplicationController
         end
         @date=session[:date]
         @team_id=params[:team_id]
-        @tasks=Task.where(team_member_id:session[:team_member])
+        if current_team_member.admin
+            @tasks = Task.where(team_id: current_team.id)
+        else
+            @tasks=Task.where(team_id: current_team.id, team_member_id:session[:team_member])
+        end
         @first_day=Date::DAYNAMES[@date.at_beginning_of_month.wday]
         @month=@date.month
         @year=@date.year
@@ -73,6 +80,15 @@ class TasksController < ApplicationController
             session[:date]=Date.parse(session[:date]) - 1.month
         elsif direction=="next"
             session[:date]=Date.parse(session[:date]) + 1.month
+        end
+    end
+
+    def require_team
+        @team=Team.find(params[:team_id])
+        unless session[:team_member] && TeamMember.find(session[:team_member]).team.id==@team.id
+            flash[:alert]="You do not have access to that page"
+            session[:team_member]=nil
+            redirect_to root_url
         end
     end
 end

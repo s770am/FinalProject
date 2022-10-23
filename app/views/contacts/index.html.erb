@@ -3,6 +3,8 @@
 
 <section class="right-side">
 
+<div class="authorization"><%= flash[:alert] %></div>
+
 <div class="top-bar">
 <h1 class="member-name"><%= current_team_member[:name].titleize%> | <%= current_team_member[:job].titleize%></h1>
 
@@ -24,6 +26,9 @@
     <p class="contact-font">Email: <%= contact.email%></p>
     <p class="contact-font">Phone Number: <%= contact.number%></p>
     <%= link_to "View Full Contact",  team_contact_path(current_team_member[:team_id], contact.id), class: "contact-font link-to-contact"%>
+    <% if current_team_member.admin %>
+      <p class="contact-font"><strong>Team member: <%= contact.team_member.name%></strong></p>
+    <% end %>
     </li>
 <% end %>
 

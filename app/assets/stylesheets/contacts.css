@@ -14,7 +14,7 @@ body{
 
 .with-side-bar {
   display: grid;
-  grid-template-columns: 15vw 1fr;
+  grid-template-columns: 17vw 1fr;
 }
 
 .side-bar{
@@ -26,11 +26,11 @@ body{
 }
 
 .links-list{
-  margin: 50% auto;
+  margin:0 1em 1em 0;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  align-content: space-between;
+  align-content: center;
 }
 
 .side-bar-link_old{
@@ -47,25 +47,43 @@ body{
   background-color: #90e0ef;
 }
 
-a.side-bar-link{
+.side-bar-link{
   display:inline-block;
-  padding:0.3em 1.2em;
-  margin:0 0.3em 0.3em 0;
-  border-radius:2em;
-  box-sizing: border-box;
-  text-decoration:none;
   font-family:'Roboto',sans-serif;
   font-weight:300;
   color:#FFFFFF;
-  background-color:#4eb5f1;
+  background-color: transparent;
   text-align:center;
   transition: all 0.2s;
+  border: none;
+  text-decoration: none;
+  padding: .3em 1.2em;
   }
-  a.side-bar-link:hover{
-   background-color:#4095c6;
+  
+  .icon-link{
+    display: flex;
+    align-items: center;
+    background-color:#4eb5f1;
+    border-radius:2em;
+    box-sizing: border-box;
+    margin:0 0.5em 0.5em 0;
   }
+  
+  .icon-link:hover{
+   background-color:#0077b6;
+  }
+
+  .icon-link:hover>#mail{
+    transform: rotate(360deg);
+    transition: all 0.7s;
+  }
+
+  .side-bar-link:hover{
+    color: #FFFFFF;
+  }
+
   @media all and (max-width:30em){
-   a.side-bar-link{
+  .side-bar-link{
   display:block;
   margin:0.2em auto;
   }
@@ -84,19 +102,22 @@ a.side-bar-link{
 .logo-small{
   width: 100%;
   max-height: 30vh;
+  margin-bottom: 1em;
 }
 
 .contact-page{
   width: 100%;
+  height: 90vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-.pinned{
-  background-color: #00B4D8;
-  width: 90%;
-  padding: 5px;
-  margin: 10px;
+#contact-page-left{
+  overflow-y: scroll;
+}
+
+#contact-page-left::-webkit-scrollbar{
+  display: none;
 }
 
 #add-note-area{
@@ -117,6 +138,15 @@ a.side-bar-link{
   width: 90%;
   padding: 5px;
   margin: 10px;
+}
+
+.pinned{
+  background-color: #00B4D8;
+}
+
+#note-buttons{
+  display: flex;
+  align-items: center;
 }
 
 #progress-contact{
@@ -148,31 +178,51 @@ a.side-bar-link{
   margin: 20px;
 }
 
-.contact-button>a{
+.contact-button>a,
+.contact-button>button,
+#button-delete{
   text-decoration: none;
   color: black;
   background-color: rgb(255, 253, 246);
   border: solid black 1px;
   padding: 10px;
   border-radius: 5%;
-  font-size: larger;
+  font-size: 1.25rem;
 }
 
-.contact-button>a:hover{
+#button-delete,
+.contact-button>button{
+  padding: 7px;
+}
+
+#button-delete{
+  display: none;
+  background-color: #b92b27;
+  color: white;
+}
+
+#button-delete:hover{
+  background-color: rgb(255, 253, 246);
+  color: black;
+}
+
+.contact-button>a:hover,
+.contact-button>button:hover,
+#button-delete:hover{
   background-color: #EEEEEE;
 }
 
 #delete-note{
   display: block;
-  width: 50px;
-  border: solid black 1px;
-  margin: 15px 0;
-  background-color: rgb(255, 253, 246);
+  border: solid rgb(99, 99, 99) 1px;
+  margin: 5px;
+  padding: 2px;
+  background-color: #f0efef;
   border-radius: 2px;
 }
 
 #delete-note:hover{
-  background-color: #EEEEEE;
+  background-color: rgb(233, 233, 230);
 }
 
 
@@ -193,7 +243,7 @@ a.side-bar-link{
 .search-button{
   height: 2rem;
   width: 4rem;
-  background-color: #90e0ef;
+  background-color: #4eb5f1;
   border: 1px solid #0077b6;
 }
 
